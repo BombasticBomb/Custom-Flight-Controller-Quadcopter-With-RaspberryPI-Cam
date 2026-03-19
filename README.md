@@ -1,7 +1,7 @@
 # Custom-Drone
 <img width="1089" height="632" alt="model" src="https://github.com/user-attachments/assets/bb9c271a-90ce-41d8-b988-920256057338" />
 
-This is my hack club project to build a medical from scratch with a custom IMU with Arduino &amp; MPU6050. It's my attempt to build a my own custom flight controller as well as PID stabilization as part of this drone project.
+This is my hack club project to build a medical from scratch with a custom IMU with Arduino &amp; MPU9250. It's my attempt to build a my own custom flight controller as well as PID stabilization as part of this drone project.
 <img width="1001" height="719" alt="image" src="https://github.com/user-attachments/assets/24605bc7-c428-4ba1-9c08-294bb76b4471" />
 
  If looking for my 3D model to review and approve my project, please look in the releases section. Due to the large file size of the .step file when extracted from the original STL file, it had to be uploaded to releases.
