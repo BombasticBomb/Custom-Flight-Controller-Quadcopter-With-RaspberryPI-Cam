@@ -8,7 +8,6 @@ This is my hack club project to build a medical from scratch with a custom IMU w
  <img width="1270" height="580" alt="image" src="https://github.com/user-attachments/assets/6970f5e0-acf0-4829-80f5-556754bd7835" />
 
 
- Parts that I used to build the Quadcopter!
 ## Bill of Materials (BOM)
 
 | Part | Quantity | Price (USD) | Link |
