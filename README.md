@@ -1,6 +1,6 @@
 # Custom-Drone
 Arduino + MPU9250 based Flight Controller for Quadcopter!
-<img width="1089" height="632" alt="model" src="https://github.com/user-attachments/assets/bb9c271a-90ce-41d8-b988-920256057338" />
+<img width="1208" height="608" alt="image" src="https://github.com/user-attachments/assets/597906a4-b4d2-417b-bde2-e7fed3b08809" />
 
 ## Inspiration!
 This is my hack club project to build a quadcopter from scratch with a custom IMU with Arduino &amp; MPU9250. Growing up, I'd watch many science and engineering videos online; I've always been a science kid who spends his time watching astronomy, engineering, etc type videos. And, I've seen many people make videos about making drones, and I'd dream but I'll tell myself - "They're on another level, I cannot reach that yet". I believe in 2026, in my 9th-grade year, I have the capability and passion to pull it off now. I present my first attempt to build my own custom flight controller as well as PID stabilization, as part of this drone project.
