@@ -1,16 +1,21 @@
-# Custom-Drone
+## 🚁 Custom Drone Flight Controller
 Arduino + MPU9250 based Flight Controller for Quadcopter!
+This project is a custom-built quadcopter drone that uses an Arduino-based flight controller with an MPU9250 IMU for stabilization. The system is designed from scratch and I am currently working on the hardware, firmware, and the system architecture utilizing a combination of Arduino & Raspberry PI.
+
+## 🖼️ 3D Model
 <img width="1208" height="608" alt="image" src="https://github.com/user-attachments/assets/597906a4-b4d2-417b-bde2-e7fed3b08809" />
-
-## Inspiration!
-This is my hack club project to build a quadcopter from scratch with a custom IMU with Arduino &amp; MPU9250. Growing up, I'd watch many science and engineering videos online; I've always been a science kid who spends his time watching astronomy, engineering, etc type videos. And, I've seen many people make videos about making drones, and I'd dream, but I'll tell myself - "They're on another level, I cannot reach that yet". However, in 2026, in my 9th-grade year, I believe I finally have the capability and, of course, the passion to pull it off. I present my first attempt to build my own custom flight controller, as well as PID stabilization, as part of this drone project.
-<img width="1001" height="719" alt="image" src="https://github.com/user-attachments/assets/24605bc7-c428-4ba1-9c08-294bb76b4471" />
-
  If looking for my 3D model to review and approve my project, please look in the releases section. Due to the large file size of the .step file when extracted from the original STL file, it had to be uploaded to releases.
 <img width="1287" height="762" alt="image" src="https://github.com/user-attachments/assets/9f28285b-bbc9-417f-9daf-f7c4b00d5090" />
 
- ## What Makes This Project Unique
-Unlike most hobbyist drones that rely on prebuilt flight controller firmware (Betaflight), my project implements a fully custom flight controller using Arduino & mpu9250 that I had to research actually to learn how it works, and I am working on developing it into a fully functioning firmware. Along with that, I am utilizing a novel method to stream video transmission using a USB camera and the Raspberry Pi using a Python script that uses OpenCV to play video on a web dashboard hosted in Flask and streamed with Flask-socketio. This is a unique method as I offload the low level control to the Arduino, while I implement advanced features such as a camera (and hopefully in the future GPS, ultrasonic sensors, etc) through the more powerful Raspberry PI which actually runs the Linux Operating System.
+## 💡 Inspiration
+This is my hack club project to build a quadcopter from scratch with a custom flight controller with Arduino &amp; MPU9250. Growing up, I'd watch many science and engineering videos online; I've always been a science kid who spends his time watching astronomy, engineering, etc type videos. And, I've seen many people make videos about making drones, and I'd dream, but I'll tell myself - "They're on another level, I cannot reach that yet". However, in 2026, in my 9th-grade year, I believe I finally have the capability and, of course, the passion to pull it off. I present my first attempt to build my own custom flight controller, as well as PID stabilization, as part of this drone project. I did this project to challenge myself in learning the ins and outs of how a quadcopter actually works, and also combine my skills in hardware, electronics, and embedded programming to create something unique and not just follow a tutorial.
+<img width="1001" height="719" alt="image" src="https://github.com/user-attachments/assets/24605bc7-c428-4ba1-9c08-294bb76b4471" />
+
+ ## 🧠 What Makes This Project Unique
+Unlike most hobbyist drones that rely on prebuilt flight controller firmware (Betaflight), my project implements a fully custom flight controller using Arduino & mpu9250 that I had to do a lot of research to actually learn how it works, and I am working on developing it into a fully functioning firmware. Along with that, I am utilizing a novel method to stream video transmission using a USB camera and the Raspberry Pi using a Python script that uses OpenCV to play video on a web dashboard hosted in Flask and streamed with Flask-socketio. This is a unique method as I offload the low-level control to the Arduino, while I implement advanced features such as a camera (and hopefully in the future GPS, ultrasonic sensors, etc) through the more powerful Raspberry Pi, which actually runs the Linux Operating System.
+- Arduino → Handles low-level flight control and sensor processing
+- Raspberry Pi → Handles higher-level features like video streaming
+- 
 **Note: The utilization of onboard wifi on the Raspberry Pi does mean the video transmission range is limited, and beyond that range, we have to rely solely on radio.
 
 
