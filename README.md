@@ -4,6 +4,8 @@ This project is a custom-built quadcopter drone that uses an Arduino-based fligh
 
 ## 🖼️ 3D Model
 <img width="1208" height="608" alt="image" src="https://github.com/user-attachments/assets/597906a4-b4d2-417b-bde2-e7fed3b08809" />
+<img width="1874" height="1059" alt="image" src="https://github.com/user-attachments/assets/5f23d9a7-5cff-4999-b29b-20a70552c914" />
+
  If looking for my 3D model to review and approve my project, please look in the releases section. Due to the large file size of the .step file when extracted from the original STL file, it had to be uploaded to releases.
 <img width="1287" height="762" alt="image" src="https://github.com/user-attachments/assets/9f28285b-bbc9-417f-9daf-f7c4b00d5090" />
 
