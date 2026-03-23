@@ -15,12 +15,10 @@ This is my hack club project to build a quadcopter from scratch with a custom fl
 Unlike most hobbyist drones that rely on prebuilt flight controller firmware (Betaflight), my project implements a fully custom flight controller using Arduino & mpu9250 that I had to do a lot of research to actually learn how it works, and I am working on developing it into a fully functioning firmware. Along with that, I am utilizing a novel method to stream video transmission using a USB camera and the Raspberry Pi using a Python script that uses OpenCV to play video on a web dashboard hosted in Flask and streamed with Flask-socketio. This is a unique method as I offload the low-level control to the Arduino, while I implement advanced features such as a camera (and hopefully in the future GPS, ultrasonic sensors, etc) through the more powerful Raspberry Pi, which actually runs the Linux Operating System.
 - Arduino --> Handles low-level flight control and sensor processing
 - Raspberry Pi --> Handles higher-level features like video streaming
-  
 **Note: The utilization of onboard wifi on the Raspberry Pi does mean the video transmission range is limited, and beyond that range, we have to rely solely on radio.
 
 ## ⚡ Wiring Diagram
 <img width="1307" height="805" alt="image" src="https://github.com/user-attachments/assets/c730b36d-18da-4402-9e17-9dd2fa1ceded" />
-
 | # | Arduino --> MPU9250 |   |             |
 | - | ----------------- | - | ----------- |
 |   | **Arduino**       | → | **MPU9250** |
@@ -49,7 +47,6 @@ Unlike most hobbyist drones that rely on prebuilt flight controller firmware (Be
 Note: Brushless motors need Electronic Speed Controllers (ESCs) to operate. The ESC's themselves are part of the wiring diagram and are powered by the Arduino. It is crucial to note the motors themselves, and the Arduino also gets power from the main battery. The reason this configuration was required is that the Arduino converts the 11.1V on the 3S battery to 5V and supplies it to the other electronics.
 
 ## 📦 Bill of Materials
-
 | Name | Purpose | Quantity | Total Cost (USD) | Link | Distributor |
 |------|---------|----------|------------------|------|-------------|
 | XT90 Male to XT60 Female connector for battery | This converts the XT90 on the battery to XT60 so it can be connected to the PDB board. | 1 | 1.00 | https://www.aliexpress.us/item/3256809870073827.html?spm=a2g0o.productlist.main.2.6ec677250MQCzi&algo_pvid=cdafdfe4-f998-4543-be9e-b0735b928c6e&algo_exp_id=cdafdfe4-f998-4543-be9e-b0735b928c6e-1&pdp_ext_f=%7B%22order%22%3A%22124%22%2C%22spu_best_type%22%3A%22price%22%2C%22eval%22%3A%221%22%2C%22fromPage%22%3A%22search%22%7D&pdp_npi=6%40dis%21USD%2111.54%210.99%21%21%2179.06%216.79%21%402103212317741506875214915ecc89%2112000050973827105%21sea%21US%210%21ABX%211%210%21n_tag%3A-29910%3Bd%3Af626b5c8%3Bm03_new_user%3A-29895%3BpisId%3A5000000197847475&curPageLogUid=TNcZo29qJmvN&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005010056388579%7C_p_origin_prod%3A | Aliexpress |
