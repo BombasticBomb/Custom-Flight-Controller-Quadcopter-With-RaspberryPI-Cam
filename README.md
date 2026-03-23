@@ -20,22 +20,29 @@ Unlike most hobbyist drones that rely on prebuilt flight controller firmware (Be
 
 ## ⚡ Wiring Diagram
 <img width="1307" height="805" alt="image" src="https://github.com/user-attachments/assets/c730b36d-18da-4402-9e17-9dd2fa1ceded" />
-1. Arduino --> MPU9250
--5V          -5V
--GND         -GND
--A4          -SDA
--A5          -SCL
-2. Arduino --> RC Reciever
--5V          -5V
--GND         -GND
--RX          -IBus
-3. Arduino --> ESC
--5V          -5V
--GND         -GND
--D3          -ESC1
--D4          -ESC2
--D5          -ESC3
--D6          -ESC4
+| # | Arduino --> MPU9250 |   |             |
+| - | ----------------- | - | ----------- |
+|   | **Arduino**       | → | **MPU9250** |
+|   | 5V                | → | 5V          |
+|   | GND               | → | GND         |
+|   | A4                | → | SDA         |
+|   | A5                | → | SCL         |
+| # | Arduino --> RC Receiver |   |                 |
+| - | --------------------- | - | --------------- |
+|   | **Arduino**           | → | **RC Receiver** |
+|   | 5V                    | → | 5V              |
+|   | GND                   | → | GND             |
+|   | RX                    | → | IBus            |
+| # | Arduino --> ESC |   |         |
+| - | ------------- | - | ------- |
+|   | **Arduino**   | → | **ESC** |
+|   | 5V            | → | 5V      |
+|   | GND           | → | GND     |
+|   | D3            | → | ESC1    |
+|   | D4            | → | ESC2    |
+|   | D5            | → | ESC3    |
+|   | D6            | → | ESC4    |
+
 
 
 ## 📦 Bill of Materials
