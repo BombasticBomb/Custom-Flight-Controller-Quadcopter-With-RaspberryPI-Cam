@@ -18,7 +18,35 @@ Unlike most hobbyist drones that rely on prebuilt flight controller firmware (Be
   
 **Note: The utilization of onboard wifi on the Raspberry Pi does mean the video transmission range is limited, and beyond that range, we have to rely solely on radio.
 
+## ⚡ Wiring Diagram
+<img width="1307" height="805" alt="image" src="https://github.com/user-attachments/assets/c730b36d-18da-4402-9e17-9dd2fa1ceded" />
 
+| # | Arduino --> MPU9250 |   |             |
+| - | ----------------- | - | ----------- |
+|   | **Arduino**       | → | **MPU9250** |
+|   | 5V                | → | 5V          |
+|   | GND               | → | GND         |
+|   | A4                | → | SDA         |
+|   | A5                | → | SCL         |
+
+| # | Arduino --> RC Receiver |   |                 |
+| - | --------------------- | - | --------------- |
+|   | **Arduino**           | → | **RC Receiver** |
+|   | 5V                    | → | 5V              |
+|   | GND                   | → | GND             |
+|   | RX                    | → | IBus            |
+
+| # | Arduino --> ESC |   |         |
+| - | ------------- | - | ------- |
+|   | **Arduino**   | → | **ESC** |
+|   | 5V            | → | 5V      |
+|   | GND           | → | GND     |
+|   | 3            | → | ESC1    |
+|   | 4            | → | ESC2    |
+|   | 5            | → | ESC3    |
+|   | 6            | → | ESC4    |
+
+Note: Brushless motors need Electronic Speed Controllers (ESCs) to operate. The ESC's themselves are part of the wiring diagram and are powered by the Arduino. It is crucial to note the motors themselves, and the Arduino also gets power from the main battery. The reason this configuration was required is that the Arduino converts the 11.1V on the 3S battery to 5V and supplies it to the other electronics.
 
 ## 📦 Bill of Materials
 
