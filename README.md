@@ -1,6 +1,8 @@
 ## 🚁 Custom Drone Flight Controller
 Arduino + MPU9250 based Flight Controller for Quadcopter!
 This project is a custom-built quadcopter drone that uses an Arduino-based flight controller with an MPU9250 IMU for stabilization. The system is designed from scratch and I am currently working on the hardware, firmware, and the system architecture utilizing a combination of Arduino & Raspberry PI.
+A major focus of this project is the 📷 Raspberry Pi Camera system — used for:
+-🎥 Real-time video streaming
 
 ## 🖼️ 3D Model
 <img width="1550" height="836" alt="drone" src="https://github.com/user-attachments/assets/44a0481e-011e-4183-ab1a-c5b240e199d9" />
