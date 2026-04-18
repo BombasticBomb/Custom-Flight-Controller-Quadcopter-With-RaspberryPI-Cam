@@ -48,6 +48,10 @@ Unlike most hobbyist drones that rely on prebuilt flight controller firmware (Be
 |   | 5             | --> | ESC3    |
 |   | 6             | --> | ESC4    |
 
+Custom PCB:
+<img width="1175" height="788" alt="image" src="https://github.com/user-attachments/assets/4022f9d7-cd2c-42dd-9d95-3de0f98c9033" />
+<img width="799" height="647" alt="image" src="https://github.com/user-attachments/assets/474f7709-70ed-4500-a96a-6f5e19cf00ba" />
+<img width="1065" height="599" alt="image" src="https://github.com/user-attachments/assets/d90e29e1-4f88-41d8-8d7b-a8cb62e65f28" />
 
 Note: Brushless motors need Electronic Speed Controllers (ESCs) to operate. The ESC's themselves are part of the wiring diagram and are powered by the Arduino. It is crucial to note the motors themselves, and the Arduino also gets power from the main battery. The reason this configuration was required is that the Arduino converts the 11.1V on the 3S battery to 5V and supplies it to the other electronics.
 
