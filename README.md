@@ -5,7 +5,8 @@ A major focus of this project is the 📷 Raspberry Pi Camera system — used fo
 -🎥 Real-time video streaming
 
 ## 🖼️ 3D Model
-<img width="1550" height="836" alt="drone" src="https://github.com/user-attachments/assets/44a0481e-011e-4183-ab1a-c5b240e199d9" />
+<img width="1441" height="861" alt="image" src="https://github.com/user-attachments/assets/348d570b-e662-4fa5-9256-1b81f3778fbd" />
+
 
  If looking for my 3D model to review and approve my project, please look in the releases section. Due to the large file size of the .step file when extracted from the original STL file, it had to be uploaded to releases.
 <img width="1287" height="762" alt="image" src="https://github.com/user-attachments/assets/9f28285b-bbc9-417f-9daf-f7c4b00d5090" />
