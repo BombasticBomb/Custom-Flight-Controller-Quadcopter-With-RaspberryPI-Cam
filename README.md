@@ -9,7 +9,7 @@ This project is a custom-built quadcopter drone that uses an Arduino flight cont
 
 ## 💡 Inspiration
 This is my hack club project to build a quadcopter from scratch with a custom flight controller with Arduino &amp; MPU9250. Growing up, I'd watch many science and engineering videos online; I've always been a science kid who spends his time watching astronomy, engineering, etc type videos. I did this project to challenge myself in learning the ins and outs of how a quadcopter actually works, and also combine my skills in hardware, electronics, and coding to create something unique and not just follow a tutorial.
-<img width="1302" height="674" alt="image" src="https://github.com/user-attachments/assets/8c574e85-890e-4739-a304-ef7fa4159d84" />
+<img width="1919" height="887" alt="image" src="https://github.com/user-attachments/assets/f73e9fdf-094f-40bd-95e9-899f76ea74ee" />
 
 
  ## 🧠 What Makes This Project Unique
