@@ -4,12 +4,12 @@ This project is a custom-built quadcopter drone that uses an Arduino flight cont
 📷 Raspberry Pi Camera system — used for: 🎥 Real-time video streaming
 
 ## 🖼️ 3D Model
-<img width="1919" height="934" alt="drone" src="https://github.com/user-attachments/assets/4dff8112-48d7-440b-82ee-06be357b5481" />
+<img width="1919" height="986" alt="drone" src="https://github.com/user-attachments/assets/f6d82f89-6f53-4dad-880d-90d3fad83853" />
 
 
 ## 💡 Inspiration
 This is my hack club project to build a quadcopter from scratch with a custom flight controller with Arduino &amp; MPU9250. Growing up, I'd watch many science and engineering videos online; I've always been a science kid who spends his time watching astronomy, engineering, etc type videos. I did this project to challenge myself in learning the ins and outs of how a quadcopter actually works, and also combine my skills in hardware, electronics, and coding to create something unique and not just follow a tutorial.
-<img width="1919" height="887" alt="image" src="https://github.com/user-attachments/assets/f73e9fdf-094f-40bd-95e9-899f76ea74ee" />
+<img width="1919" height="933" alt="image" src="https://github.com/user-attachments/assets/c927ac37-ada5-45f1-85ff-0e3ffdc3b0ac" />
 
 
  ## 🧠 What Makes This Project Unique
