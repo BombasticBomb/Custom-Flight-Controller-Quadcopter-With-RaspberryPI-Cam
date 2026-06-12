@@ -4,7 +4,7 @@ This project is a custom-built quadcopter drone that uses an Arduino flight cont
 📷 Raspberry Pi Camera system — used for: 🎥 Real-time video streaming
 
 ## 🖼️ 3D Model
-<img width="1919" height="1033" alt="drone" src="https://github.com/user-attachments/assets/bae083e5-ac2f-43a0-9d7e-eb20b0e1fc7d" />
+<img width="1919" height="988" alt="drone" src="https://github.com/user-attachments/assets/936b81aa-d9fb-4adb-ab87-c6a6a8819349" />
 
 
 ## 💡 Inspiration
