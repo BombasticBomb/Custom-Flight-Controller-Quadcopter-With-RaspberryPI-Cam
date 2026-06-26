@@ -4,7 +4,7 @@ This project is a custom-built quadcopter drone that uses an Arduino flight cont
 📷 Raspberry Pi Camera system — used for: 🎥 Real-time video streaming
 
 ## 🖼️ 3D Model
-<img width="1268" height="758" alt="image" src="https://github.com/user-attachments/assets/0b6516c5-9822-4d2b-a7bc-13b3128d133d" />
+<img width="1919" height="978" alt="drone" src="https://github.com/user-attachments/assets/9488ece2-37ec-4b59-b46e-6e8dc24868ed" />
 
 
 ## 💡 Inspiration
@@ -53,6 +53,11 @@ Custom PCB:
 <img width="1065" height="599" alt="image" src="https://github.com/user-attachments/assets/d90e29e1-4f88-41d8-8d7b-a8cb62e65f28" />
 
 Note: The ESCs themselves are part of the wiring diagram and are powered by the Arduino. It is crucial to note the motors themselves, and the Arduino also gets power from the main battery. The reason this configuration was required is that the Arduino converts the 11.1V on the 3S battery to 5V and supplies it to the other electronics.
+
+## 🚀 SimScale Simulation
+To make sure my chassis had good enough aerodynamics to handle real-life flight and had low drag, I did a flow simulation in SimScale to get an idea of what areas would cause the most drag. The red and orange areas show the most amount of air volume hitting the chassis, creating pressure. Overall, I think I did a pretty good job building the chassis, and it should fly without any issues.
+<img width="1887" height="928" alt="image" src="https://github.com/user-attachments/assets/aeed18c3-4b9b-4a36-a896-fe8d5df87874" />
+
 
 # 📦 Bill of Materials
 
