@@ -4,7 +4,7 @@ This project is a custom-built quadcopter drone that uses an Arduino flight cont
 📷 Raspberry Pi Camera system — used for: 🎥 Real-time video streaming
 
 ## 🖼️ 3D Model
-<img width="1919" height="978" alt="drone" src="https://github.com/user-attachments/assets/9488ece2-37ec-4b59-b46e-6e8dc24868ed" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/2295d726-c978-430c-b60e-c23687e94a5f" />
 
 
 ## 💡 Inspiration
@@ -20,7 +20,7 @@ Unlike most custom drones that rely on preprogrammed ready-to-fly flight control
 **Note: Using the onboard wifi on the Raspberry Pi does mean the video transmission range is limited, and beyond that range, we have to rely solely on radio.
 
 ## ⚡ Wiring Diagram
-<img width="1307" height="805" alt="image" src="https://github.com/user-attachments/assets/c730b36d-18da-4402-9e17-9dd2fa1ceded" />
+<img width="1024" height="559" alt="circuit diagram" src="https://github.com/user-attachments/assets/9755f03a-04df-4491-be2b-8414541a13d2" />
 
 | # | Arduino --> MPU9250 |   |             |
 | - | ----------------- | - | ----------- |
