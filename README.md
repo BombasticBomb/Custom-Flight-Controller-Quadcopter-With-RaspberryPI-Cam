@@ -18,8 +18,9 @@ Unlike most custom drones that rely on preprogrammed ready-to-fly flight control
 
 **Note: Using the onboard wifi on the Raspberry Pi does mean the video transmission range is limited, and beyond that range, we have to rely solely on radio.
 
-## Wiring Diagram
+## Wiring Diagrams
 <img width="1024" height="559" alt="circuit diagram" src="https://github.com/user-attachments/assets/9755f03a-04df-4491-be2b-8414541a13d2" />
+<img width="1024" height="890" alt="image" src="https://github.com/user-attachments/assets/b0647f15-fe06-47f9-b61d-f54ff77f57d4" />
 
 | # | Arduino --> MPU9250 |   |             |
 | - | ----------------- | - | ----------- |
