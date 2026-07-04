@@ -1,25 +1,24 @@
-## 🚁 Custom Drone Flight Controller
+## Custom Drone Flight Controller
 Arduino + MPU9250 based Flight Controller for Quadcopter!
 This project is a custom-built quadcopter drone that uses an Arduino flight controller with an MPU9250 IMU. The system is designed from scratch and I am currently working on the hardware, firmware, and the system architecture utilizing a combination of Arduino & Raspberry PI.
-📷 Raspberry Pi Camera system — used for: 🎥 Real-time video streaming
 
-## 🖼️ 3D Model
+## 3D Model
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/2295d726-c978-430c-b60e-c23687e94a5f" />
+This'll be printed in Carbon Fiber Nylon Filament so it is actually strong enough to be a drone chassis.
 
-
-## 💡 Inspiration
+## Inspiration
 This is my hack club project to build a quadcopter from scratch with a custom flight controller with Arduino &amp; MPU9250. Growing up, I'd watch many science and engineering videos online; I've always been a science kid who spends his time watching astronomy, engineering, etc type videos. I did this project to challenge myself in learning the ins and outs of how a quadcopter actually works, and also combine my skills in hardware, electronics, and coding to create something unique and not just follow a tutorial.
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6d4dacd3-5d2b-4e8e-9400-ecf575eafe07" />
+<img width="1919" height="970" alt="image" src="https://github.com/user-attachments/assets/6066f4e6-7fbe-49cd-982a-4385e910c6f5" />
 
 
- ## 🧠 What Makes This Project Unique
+ ## What Makes This Project Unique
 Unlike most custom drones that rely on preprogrammed ready-to-fly flight controllers, my project uses a fully custom flight controller using Arduino & mpu9250 that I had to do a lot of research to actually learn how it works, and I am working on developing it into a fully functioning firmware. Along with that, I am utilizing a novel method to stream video transmission using a USB camera and the Raspberry Pi using a Python script that uses OpenCV to play video on a web dashboard hosted in Flask and streamed with Flask-socketio. This is a unique method as I offload the low-level control to the Arduino, while I implement advanced features such as a camera (and hopefully in the future GPS, ultrasonic sensors, etc) through the more powerful Raspberry Pi, which actually runs the Linux Operating System.
 - Arduino --> Does the low-level flight control and sensor fusion
-- Raspberry Pi --> Handles more resource-intensive features like video streaming
+- Raspberry Pi --> Video Streaming
 
 **Note: Using the onboard wifi on the Raspberry Pi does mean the video transmission range is limited, and beyond that range, we have to rely solely on radio.
 
-## ⚡ Wiring Diagram
+## Wiring Diagram
 <img width="1024" height="559" alt="circuit diagram" src="https://github.com/user-attachments/assets/9755f03a-04df-4491-be2b-8414541a13d2" />
 
 | # | Arduino --> MPU9250 |   |             |
@@ -48,18 +47,12 @@ Unlike most custom drones that rely on preprogrammed ready-to-fly flight control
 |   | 6             | --> | ESC4    |
 
 Custom PCB:
-<img width="1175" height="788" alt="image" src="https://github.com/user-attachments/assets/4022f9d7-cd2c-42dd-9d95-3de0f98c9033" />
-<img width="799" height="647" alt="image" src="https://github.com/user-attachments/assets/474f7709-70ed-4500-a96a-6f5e19cf00ba" />
 <img width="1065" height="599" alt="image" src="https://github.com/user-attachments/assets/d90e29e1-4f88-41d8-8d7b-a8cb62e65f28" />
-
+<img width="4032" height="3024" alt="pcb" src="https://github.com/user-attachments/assets/90fb526e-7d27-4eea-8660-46171f0596db" />
 Note: The ESCs themselves are part of the wiring diagram and are powered by the Arduino. It is crucial to note the motors themselves, and the Arduino also gets power from the main battery. The reason this configuration was required is that the Arduino converts the 11.1V on the 3S battery to 5V and supplies it to the other electronics.
 
-## 🚀 SimScale Simulation
-To make sure my chassis had good enough aerodynamics to handle real-life flight and had low drag, I did a flow simulation in SimScale to get an idea of what areas would cause the most drag. The red and orange areas show the most amount of air volume hitting the chassis, creating pressure. Overall, I think I did a pretty good job building the chassis, and it should fly without any issues.
-<img width="1887" height="928" alt="image" src="https://github.com/user-attachments/assets/aeed18c3-4b9b-4a36-a896-fe8d5df87874" />
 
-
-# 📦 Bill of Materials
+# Bill of Materials
 
 | Name | Purpose | Quantity | Total Cost (USD) | Link | Distributor |
 |------|---------|----------|------------------|------|-------------|
@@ -76,7 +69,5 @@ To make sure my chassis had good enough aerodynamics to handle real-life flight 
 | 3S Li-po Battery Charger US Plug | This will be used to charge the battery. | 1 | 11.61 | https://www.aliexpress.us/item/3256805934795867.html?spm=a2g0o.productlist.main.5.5574546cUwMiyN&algo_pvid=89444658-625e-497a-9161-8886d6b7c66c&algo_exp_id=89444658-625e-497a-9161-8886d6b7c66c-4&pdp_ext_f=%7B%22order%22%3A%2236%22%2C%22eval%22%3A%221%22%2C%22fromPage%22%3A%22search%22%7D&pdp_npi=6%40dis%21USD%2114.61%219.61%21%21%2114.61%219.61%21%402103122117759642911075864e8f33%2112000035846729871%21sea%21US%212842570567%21ACX%211%210%21n_tag%3A-29919%3Bd%3A3fe947d3%3Bm03_new_user%3A-29894%3BpisId%3A5000000203531302&curPageLogUid=vJ4Xx6RcBVto&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005006121110619%7C_p_origin_prod%3A | AliExpress |
 | MicroZone MC6C Mini V2 2.4G 6CH Controller Transmitter w/ Receiver | This will be used for the radio communication with the drone. | 1 | 35.24 | https://www.aliexpress.us/item/3256807243819244.html?spm=a2g0o.productlist.main.35.4ab577e7dXjt8P&algo_pvid=51c9d117-d897-430c-8a26-849a75ee0eb6&algo_exp_id=51c9d117-d897-430c-8a26-849a75ee0eb6-34&pdp_ext_f=%7B%22order%22%3A%22543%22%2C%22eval%22%3A%221%22%2C%22fromPage%22%3A%22search%22%7D&pdp_npi=6%40dis%21USD%21118.36%2135.24%21%21%21804.10%21239.42%21%40210319b717759622763998627ecd25%2112000040726294727%21sea%21US%212842570567%21ACX%211%210%21n_tag%3A-29919%3Bd%3A3fe947d3%3Bm03_new_user%3A-29894%3BpisId%3A5000000203531302&curPageLogUid=uuj3pbufhNDE&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005007430133996%7C_p_origin_prod%3A | AliExpress |
 | 30A Brushless Motor ESC | This will be the Electronic Speed Controller for the 4 brushless motors on the drone. I need to buy 2 pieces for a total of 4 for each motor. | 1 | 12.87 | https://www.aliexpress.us/item/2252799818726193.html?spm=a2g0o.detail.0.0.57c84iEw4iEwcX&mp=1&pdp_npi=6%40dis%21USD%21USD%2019.37%21USD%2012.87%21%21USD%2012.87%21%21%21%402101e62517759623597128640e4864%2112000037347798186%21ct%21US%212842570567%21%211%210%21&_gl=1*bd7qv0*_gcl_aw*R0NMLjE3NzU5NjE3NjQuQ2p3S0NBanc0dWZPQmhCa0Vpd0FmdUM3LVN4Wk1VVThydWVYUFUtRldvTkVNRkdlU1g5UkxIbzBkY1JpdmRNRlpicjZjYzA5cVpvUTNCb0Nxb3dRQXZEX0J3RQ..*_gcl_au*MTA5ODg3MDg0OS4xNzc0MTUwMTU1*_ga*MTgzMDIyMjAwNi4xNzc1OTYyMjM1*_ga_VED1YSGNC7*czE3NzU5NjIyMzQkbzEkZzEkdDE3NzU5NjIzNjEkajEwJGwwJGgw&gatewayAdapt=glo2usa | AliExpress |
+| **Total** | | | **138.50** | | |
 
-## 💰 Total Cost
-
-**$138.50 USD**
