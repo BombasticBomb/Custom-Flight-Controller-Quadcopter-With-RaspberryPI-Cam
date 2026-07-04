@@ -1,25 +1,24 @@
-## 🚁 Custom Drone Flight Controller
+## Custom Drone Flight Controller
 Arduino + MPU9250 based Flight Controller for Quadcopter!
 This project is a custom-built quadcopter drone that uses an Arduino flight controller with an MPU9250 IMU. The system is designed from scratch and I am currently working on the hardware, firmware, and the system architecture utilizing a combination of Arduino & Raspberry PI.
-📷 Raspberry Pi Camera system — used for: 🎥 Real-time video streaming
 
-## 🖼️ 3D Model
+## 3D Model
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/2295d726-c978-430c-b60e-c23687e94a5f" />
 
 
-## 💡 Inspiration
+## Inspiration
 This is my hack club project to build a quadcopter from scratch with a custom flight controller with Arduino &amp; MPU9250. Growing up, I'd watch many science and engineering videos online; I've always been a science kid who spends his time watching astronomy, engineering, etc type videos. I did this project to challenge myself in learning the ins and outs of how a quadcopter actually works, and also combine my skills in hardware, electronics, and coding to create something unique and not just follow a tutorial.
 <img width="1919" height="970" alt="image" src="https://github.com/user-attachments/assets/6066f4e6-7fbe-49cd-982a-4385e910c6f5" />
 
 
- ## 🧠 What Makes This Project Unique
+ ## What Makes This Project Unique
 Unlike most custom drones that rely on preprogrammed ready-to-fly flight controllers, my project uses a fully custom flight controller using Arduino & mpu9250 that I had to do a lot of research to actually learn how it works, and I am working on developing it into a fully functioning firmware. Along with that, I am utilizing a novel method to stream video transmission using a USB camera and the Raspberry Pi using a Python script that uses OpenCV to play video on a web dashboard hosted in Flask and streamed with Flask-socketio. This is a unique method as I offload the low-level control to the Arduino, while I implement advanced features such as a camera (and hopefully in the future GPS, ultrasonic sensors, etc) through the more powerful Raspberry Pi, which actually runs the Linux Operating System.
 - Arduino --> Does the low-level flight control and sensor fusion
 - Raspberry Pi --> Handles more resource-intensive features like video streaming
 
 **Note: Using the onboard wifi on the Raspberry Pi does mean the video transmission range is limited, and beyond that range, we have to rely solely on radio.
 
-## ⚡ Wiring Diagram
+## Wiring Diagram
 <img width="1024" height="559" alt="circuit diagram" src="https://github.com/user-attachments/assets/9755f03a-04df-4491-be2b-8414541a13d2" />
 
 | # | Arduino --> MPU9250 |   |             |
@@ -54,12 +53,12 @@ Custom PCB:
 
 Note: The ESCs themselves are part of the wiring diagram and are powered by the Arduino. It is crucial to note the motors themselves, and the Arduino also gets power from the main battery. The reason this configuration was required is that the Arduino converts the 11.1V on the 3S battery to 5V and supplies it to the other electronics.
 
-## 🚀 SimScale Simulation
+## SimScale Simulation
 To make sure my chassis had good enough aerodynamics to handle real-life flight and had low drag, I did a flow simulation in SimScale to get an idea of what areas would cause the most drag. The red and orange areas show the most amount of air volume hitting the chassis, creating pressure. Overall, I think I did a pretty good job building the chassis, and it should fly without any issues.
 <img width="1887" height="928" alt="image" src="https://github.com/user-attachments/assets/aeed18c3-4b9b-4a36-a896-fe8d5df87874" />
 
 
-# 📦 Bill of Materials
+# Bill of Materials
 
 | Name | Purpose | Quantity | Total Cost (USD) | Link | Distributor |
 |------|---------|----------|------------------|------|-------------|
