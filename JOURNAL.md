@@ -29,13 +29,6 @@ I made the arms of the drone thicker so it is more resistant to crashes, which m
 Not only that, I also added a small cutout on the top to house the main electronics, including the battery, the Raspberry PI, and also the custom PCB.
 <img width="1199" height="773" alt="image" src="https://github.com/user-attachments/assets/f339330d-11ec-4512-8e6f-486c1a7318d8" />
 
-# 6/18/2026 11 PM - Added Smooth Underside to the Arm and added Electronics Housing
-
-_Time spent: 1h 26m_
-
-<img width="1004" height="476" alt="image" src="https://github.com/user-attachments/assets/612a4224-f60f-449f-93eb-2c0455087e59" />
-Added Landing Legs for the Drone: After I moved the project from stasis, I added a better landing leg for the drone and added M3 holes to screw them to the main body. After this, I’ll fix the BOM in my GitHub as well as finish up the Raspberry PI Camera code and submit it for review. Should be almost done.
-<img width="995" height="652" alt="image" src="https://github.com/user-attachments/assets/8ec7eaaa-c7c9-4a88-b821-821d035fec59" />
 
 # 6/11/2026 9 PM - More changes to the 3D model of the Drone
 
@@ -56,12 +49,6 @@ In the bottom, added landing legs to provide better stability.
 To house the electronics, I added a small area on the top to hold the parts.
 ![image](https://stasis.hackclub-assets.com/images/1781213353701-xb3eld.png)
 
-![image](https://stasis.hackclub-assets.com/images/1781213142716-jm1z42.png)
-![image](https://stasis.hackclub-assets.com/images/1781213202038-4pw80q.png)
-![image](https://stasis.hackclub-assets.com/images/1781213241385-vs5smg.png)
-![image](https://stasis.hackclub-assets.com/images/1781213291150-uvns13.png)
-![image](https://stasis.hackclub-assets.com/images/1781213316718-xz8g2e.png)
-![image](https://stasis.hackclub-assets.com/images/1781213353701-xb3eld.png)
 
 # 6/10/2026 10 PM - Designing New Drone Chassis
 
@@ -79,8 +66,6 @@ Link: https://www.youtube.com/watch?v=4bDNXpWQaW4
 
 Lastly, I think I'll make some more changes to the drone to make it even sturdier, like adding some pressure absorbers at the bottom of the legs.
 
-![image](https://stasis.hackclub-assets.com/images/1781129874856-9uzzh7.png)
-![image](https://stasis.hackclub-assets.com/images/1781130056879-7fp3xl.png)
 
 # 4/18/2026 6 PM - Finish Designing Custom PCB
 
@@ -95,11 +80,6 @@ Lastly, I made the PCB and made all the traces. I went with thicker 4mm traces f
 Here's the final PCB:
 ![image](https://stasis.hackclub-assets.com/images/1776535449528-0ceizj.png)
 
-![image](https://stasis.hackclub-assets.com/images/1776535204736-pji7hj.png)
-![image](https://stasis.hackclub-assets.com/images/1776535300926-nwz8xy.png)
-![image](https://stasis.hackclub-assets.com/images/1776535399958-vzd0is.png)
-![image](https://stasis.hackclub-assets.com/images/1776535449528-0ceizj.png)
-
 # 4/7/2026 3 AM - Flight Controller PCB V1
 
 _Time spent: 2h_
@@ -112,8 +92,6 @@ I decided to use KiCad for this, and I used bare chips instead of modules for no
 ![image](https://stasis.hackclub-assets.com/images/1775531121795-v1llih.png)
 Still not sure whether I will continue this setup, as the electronic noise is a big deal. Might end up switching that out for the GY-91 module itself.
 
-![image](https://stasis.hackclub-assets.com/images/1775531093412-96yffh.png)
-![image](https://stasis.hackclub-assets.com/images/1775531121795-v1llih.png)
 
 # 3/23/2026 3 AM - PID Loop V1 (Stabilization)
 
@@ -126,8 +104,6 @@ Source: https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93deri
 After some research on YouTube about how a PID controller works, I tried creating my own loop in the stabilization part of my firmware and called the stabilize() function which has the controller. As of right now, I don't have much of an idea as to how the motors behave and how much thrust increases as I increase speed in percentage, so I just made it increase and decrease thrust based on the values from the PID loop. When I actually build the physical drone, it'll have the PID constants tuned, and I'll also tune the thrust increase/decrease for optimal flight.
 ![image](https://stasis.hackclub-assets.com/images/1774235903144-oo93fk.png)
 
-![image](https://stasis.hackclub-assets.com/images/1774235952619-k8qh70.png)
-![image](https://stasis.hackclub-assets.com/images/1774235903144-oo93fk.png)
 
 # 3/19/2026 4 AM - Basic Gyroscope & Accelerometer Sensor Fusion along with Throttle Control
 
@@ -145,10 +121,6 @@ I also started writing code for reading signals from the radio receiver and its 
 
 ![image](https://stasis.hackclub-assets.com/images/1773894792856-d98bn3.png)
 
-![image](https://stasis.hackclub-assets.com/images/1773894588188-me5n5q.png)
-![image](https://stasis.hackclub-assets.com/images/1773894843603-6uyued.png)
-![image](https://stasis.hackclub-assets.com/images/1773894688320-mes3dt.png)
-![image](https://stasis.hackclub-assets.com/images/1773894792856-d98bn3.png)
 
 # 3/18/2026 4 AM - Designing 3D Model of Drone
 
@@ -161,8 +133,6 @@ In the past 2 hours, I designed the basic 3D outline of the drone in TinkerCAD t
 If looking for my 3D model to review and approve my project, please look in the releases section. Due to the large file size of the .step file when extracted from the original STL file, it had to be uploaded to releases. 
 ![image](https://stasis.hackclub-assets.com/images/1773806522670-wy8610.png)
 
-![image](https://stasis.hackclub-assets.com/images/1773806495093-j3iobu.png)
-![image](https://stasis.hackclub-assets.com/images/1773806522670-wy8610.png)
 
 # 3/17/2026 9 PM - Deciding Propeller, Motor & Battery Sizes
 
@@ -178,9 +148,6 @@ Considering this one:
 ![image](https://stasis.hackclub-assets.com/images/1773783095039-14muix.png)
 Source: https://www.printables.com/model/250067-drone-frame
 
-![image](https://stasis.hackclub-assets.com/images/1773782883657-xkhlok.png)
-![image](https://stasis.hackclub-assets.com/images/1773782997945-qfr7qd.png)
-![image](https://stasis.hackclub-assets.com/images/1773783095039-14muix.png)
 
 # 3/17/2026 4 AM - Choose Parts
 
@@ -192,6 +159,5 @@ In the last 2 and a half hours, I brainstormed ideas as to how to build the dron
 
 ![image](https://stasis.hackclub-assets.com/images/1773720803594-j6lp8g.png)
 
-![image](https://stasis.hackclub-assets.com/images/1773720346633-ba1z0l.png)
-![image](https://stasis.hackclub-assets.com/images/1773720803594-j6lp8g.png)
+
 
