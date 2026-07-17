@@ -1,3 +1,14 @@
+# 7/16/2026 9:38 PM - Added Superior Landing Legs & Added Extra Mounting Holes (Future Development)
+
+_Time spent: 2h 34m_
+
+<img width="1149" height="729" alt="image" src="https://github.com/user-attachments/assets/141da5e8-1b58-4f86-86f5-53739f99d774" />
+I added 2 extra mounting holes so I can add on new modules in the future for items like Gimbal Camera, GPS, Drop mechanism, etc.
+
+<img width="1000" height="515" alt="image" src="https://github.com/user-attachments/assets/4dc7a503-dce1-4675-8990-23432ff40aec" />
+The previous landing leg design had a center of gravity that was relatively high, and standing on tiny legs with little surface area. This design fixed it by making the legs shorter, and adding a smooth pad at the bottom
+that'll also be reinforced with shock absorbing foam. Even added some tall standoffs on the arms that may or may not allow me to completely take of the landing legs and land on those!
+
 # 6/26/2026 10:25 PM - Switched Flight Controller From MPU6050 to MPU9250
 
 _Time spent: 21m_
