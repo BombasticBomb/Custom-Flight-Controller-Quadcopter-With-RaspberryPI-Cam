@@ -8,7 +8,7 @@ MPU9250. Today’s session was mostly about getting the sensory data (Roll, Pitc
 connections from the custom PCB.
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/cab0059d-ea0a-4a8e-adad-0b5aa55f1da3" />
 
-# 6/19/2026 11 PM - Added Smooth Underside to the Arm and added Electronics Housing
+# 6/19/2026 1:30 PM - Added Smooth Underside to the Arm and added Electronics Housing
 
 _Time spent: 22m_
 
@@ -18,7 +18,7 @@ I made the arms of the drone thicker so it is more resistant to crashes, which m
 Not only that, I also added a small cutout on the top to house the main electronics, including the battery, the Raspberry PI, and also the custom PCB.
 <img width="1199" height="773" alt="image" src="https://github.com/user-attachments/assets/f339330d-11ec-4512-8e6f-486c1a7318d8" />
 
-# 6/19/2026 11 PM - Added Smooth Underside to the Arm and added Electronics Housing
+# 6/18/2026 11 PM - Added Smooth Underside to the Arm and added Electronics Housing
 
 _Time spent: 1h 26m_
 
