@@ -1,3 +1,19 @@
+# 7/19/2026 18:03 PM - Completely changed the thickness of parts as Carbon Fiber Nylon is strong enough, and added many decoration holes and patterns to vastly reduce weight.
+
+_Time spent: 3h 19m_
+
+<img width="1706" height="702" alt="image" src="https://github.com/user-attachments/assets/5a9de6c2-abc0-4d23-b40f-d7c917860265" />
+I added these design holes found in other drone chassis kits that not only made it look nicer, it reduced a lot of weight without making the arms that much weaker, as carbon fiber is a very strong material. This reduced the weight of the individual arms from 37g to 25g, as per the printing settings I used. 
+
+<img width="449" height="531" alt="image" src="https://github.com/user-attachments/assets/0d283936-0bf7-474e-ad96-b90c5d63ec18" />
+Also added some cutouts to the chassis that didn't drastically reduce weight, as the chassis is relatively thin. However, this'll allow me to tie things onto the drone if I ever need to do so in the future, and it also looks nice on the drone chassis.
+
+<img width="1293" height="467" alt="image" src="https://github.com/user-attachments/assets/bc861eae-7d36-4839-bfa0-1f996200ef41" />
+Similarly, added cutouts to the bottom legs and thinned the pads out a bit too to reduce weight. This resulted in almost 50g of weight reduction.
+
+<img width="987" height="467" alt="image" src="https://github.com/user-attachments/assets/84e20623-8427-4d00-9252-54a565c96e1b" />
+I was having anxiety about flexing where the motor attaches to the arms, so I made it thicker at just that part.
+
 # 7/16/2026 9:38 PM - Added Superior Landing Legs & Added Extra Mounting Holes (Future Development)
 
 _Time spent: 2h 34m_
