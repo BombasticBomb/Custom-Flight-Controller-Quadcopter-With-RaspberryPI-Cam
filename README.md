@@ -4,7 +4,7 @@ This project is a custom-built quadcopter drone that uses an Arduino flight cont
 Hack Club Project (Approved): https://stardance.hackclub.com/projects/21695
 
 ## 3D Model
-<img width="1919" height="933" alt="image" src="https://github.com/user-attachments/assets/31d36cb0-f1e3-4b6a-92ba-0578c7593908" />
+<img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/935ad252-4024-4944-befd-72061410fe91" />
 This'll be printed in Carbon Fiber Nylon Filament, so it is actually strong enough to be a drone chassis. I will also use a Gyroid infill pattern with 40% infill to make it really strong, and I'll also use a wall count of 6 for further reinforcement. 
 Note: This is the part that Hack Club doesn't currently cover, so I am hoping the Cactus Capital application will fill this gap, along with the batteries included in the BOM listed at the bottom!
 
