@@ -1,3 +1,18 @@
+# 7/20/2026 10:28 PM - Started writing code to interface the Arduino with the RC transmitter.
+
+_Time spent: 2h 47m_
+
+Firstly, I decided to do some research about the channel configuration and how to read PWM signals from the receiver. Originally, I thought I was going to use the IbusBM library, but apparently my receiver didn't support it.
+<img width="1919" height="847" alt="image" src="https://github.com/user-attachments/assets/aee3893d-1b5c-40e9-9bcc-897fb29919a9" />
+
+To solve this problem, I thought I'd use Arduino Nano's hardware interrupts, but the Nano only had 2 pins, and I needed a minimum for my 4 channels: Throttle, Pitch, Yaw, and Roll. Then, I found out about something called pin change interrupts, but those required manual memory address and pin registry configuring, and thankfully the Arduino PinChangeInterrupt library took care of that for me.
+<img width="1160" height="397" alt="image" src="https://github.com/user-attachments/assets/b4e88ca3-5096-4f5d-8dea-8a8d4f669ddf" />
+
+Not only that, but I also found out that RC transmitters like these don't have perfect PWM signal outputs, as I measured with the arduino. To fix that and scale it to the perfect 1000um-2000um range needed for the ESCs to work well, I decided to log the range of values that each of the 4 channels output, and used the arduino map() function to scale it to the desired range and constrained it with the constrain() function. This worked remarkably well and I tested it with a Brushless motor and it worked well.
+<img width="719" height="258" alt="image" src="https://github.com/user-attachments/assets/1872b9d3-a235-4796-b68f-cf5f85f02581" />
+<img width="568" height="124" alt="image" src="https://github.com/user-attachments/assets/0ebd69e6-ac06-4cd7-8e2b-56e0ddf70e30" />
+
+
 # 7/19/2026 18:03 PM - Completely changed the thickness of parts as Carbon Fiber Nylon is strong enough, and added many decoration holes and patterns to vastly reduce weight.
 
 _Time spent: 3h 19m_
