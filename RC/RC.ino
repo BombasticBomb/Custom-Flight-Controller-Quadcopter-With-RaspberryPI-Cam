@@ -93,57 +93,25 @@ void loop() {
 
 }
 
-void readThrottle() {
-  if (digitalRead(throttlePin) == HIGH) {
-    throttlePWMStart = micros();
+void readPWM(const int pin, volatile unsigned long &startTime, volatile int &value) {
+  if (digitalRead(pin) == HIGH) {
+    startTime = micros();
   } else {
-    if (throttlePWMStart != 0) {
-      int pulseTime = (int)(micros() - throttlePWMStart); 
-      if (pulseTime > 800 && pulseTime < 2200) { //Basic filtering
-        throttleTemp = pulseTime;
+    if (startTime != 0) {
+      int pulseTime = micros() - startTime;
+      if (pulseTime > 800 && pulseTime < 2200) { //Basic filtering  
+        value = pulseTime;
       }
     }
   }
 }
 
-void readPitch() {
-  if (digitalRead(pitchPin) == HIGH) {
-    pitchPWMStart = micros();
-  } else {
-    if (pitchPWMStart != 0) {
-      int pulseTime = (int)(micros() - pitchPWMStart); 
-      if (pulseTime > 800 && pulseTime < 2200) { //Basic filtering
-        pitchTemp = pulseTime;
-      }
-    }
-  }
-}
+//Functions
+void readThrottle() { readPWM(throttlePin, throttlePWMStart, throttleTemp); }
+void readPitch()    { readPWM(pitchPin, pitchPWMStart, pitchTemp); }
+void readYaw()      { readPWM(yawPin, yawPWMStart, yawTemp); }
+void readRoll()     { readPWM(rollPin, rollPWMStart, rollTemp); }
 
-void readYaw() {
-  if (digitalRead(yawPin) == HIGH) {
-    yawPWMStart = micros();
-  } else {
-    if (yawPWMStart != 0) {
-      int pulseTime = (int)(micros() - yawPWMStart); 
-      if (pulseTime > 800 && pulseTime < 2200) { //Basic filtering
-        yawTemp = pulseTime;
-      }
-    }
-  }
-}
-
-void readRoll() {
-  if (digitalRead(rollPin) == HIGH) {
-    rollPWMStart = micros();
-  } else {
-    if (rollPWMStart != 0) {
-      int pulseTime = (int)(micros() - rollPWMStart); 
-      if (pulseTime > 800 && pulseTime < 2200) { //Basic filtering
-        rollTemp = pulseTime;
-      }
-    }
-  }
-}
 
 
 //Scale the transmitter values to the motor
