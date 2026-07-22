@@ -1,3 +1,11 @@
+# 7/21/2026 11:34 PM - Started writing code to interface the Arduino with the RC transmitter.
+
+_Time spent: 57m_
+I added some small DJI Mini style landing legs to the drone, so that if I ever want I can take the big landing legs off and just have a low profile setup.
+<img width="1210" height="534" alt="image" src="https://github.com/user-attachments/assets/5c2e5df5-b1e3-4d53-9aff-5593bcd419cb" />
+<img width="1161" height="549" alt="image" src="https://github.com/user-attachments/assets/f0da94c7-e94f-44fe-9bf2-d7b771583c5f" />
+<img width="1202" height="674" alt="image" src="https://github.com/user-attachments/assets/d3cca06b-afc8-4c2a-8e80-85dc597b540e" />
+
 # 7/20/2026 10:28 PM - Started writing code to interface the Arduino with the RC transmitter.
 
 _Time spent: 2h 47m_
