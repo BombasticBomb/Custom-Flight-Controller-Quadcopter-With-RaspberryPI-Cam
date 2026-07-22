@@ -26,8 +26,8 @@ Also added some cutouts to the chassis that didn't drastically reduce weight, as
 <img width="1293" height="467" alt="image" src="https://github.com/user-attachments/assets/bc861eae-7d36-4839-bfa0-1f996200ef41" />
 Similarly, added cutouts to the bottom legs and thinned the pads out a bit too to reduce weight. This resulted in almost 50g of weight reduction.
 
-<img width="987" height="467" alt="image" src="https://github.com/user-attachments/assets/84e20623-8427-4d00-9252-54a565c96e1b" />
-I was having anxiety about flexing where the motor attaches to the arms, so I made it thicker at just that part.
+<img width="1081" height="651" alt="chip" src="https://github.com/user-attachments/assets/ef7aa236-dce8-4b5b-aab3-3f944ded3d1e" />
+I was having anxiety about flexing where the motor attaches to the arms, so I made it thicker at just that part. I also added a smooth hilly part that should make it really strong.
 
 # 7/16/2026 9:38 PM - Added Superior Landing Legs & Added Extra Mounting Holes (Future Development)
 
