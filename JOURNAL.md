@@ -1,3 +1,37 @@
+# 7/23/2026 7:29 PM - Added Secondary Landing Legs.
+
+_Time spent: 3h 21m_
+
+Firstly, I decided to write the Motors mixer function for the drone with a standard Quad X setup, so I can just call it in the main loop and it'll update the motor values on each iteration according to the PID values.
+<img width="968" height="368" alt="image" src="https://github.com/user-attachments/assets/71bee40e-fbb5-415c-9b8c-32709f5e6a27" />
+<img width="780" height="106" alt="image" src="https://github.com/user-attachments/assets/c1338c15-fe76-489d-aa34-cc90ccd79c53" />
+
+Then, I write a simple PID function that I'll be using in the main loop. This is not yet a cascaded PID controller, but it's a start. I made some state variables and wrote the function to add up the proportional, integral and derivative part.
+<img width="1125" height="448" alt="image" src="https://github.com/user-attachments/assets/a78ca2d4-e061-447b-9acc-e97a5302ef82" />
+
+To then feed data into the PID function, I used the BolderFlight Invensense Arduino library to interface it with the MPU9250, and get all the data.
+<img width="845" height="261" alt="image" src="https://github.com/user-attachments/assets/264e9409-4e41-4e53-975b-c2336f464489" />
+<img width="439" height="92" alt="image" src="https://github.com/user-attachments/assets/d89769e4-9d75-4407-ba3f-fdd96fc52462" />
+
+All IMU sensors have noise in the data, but since an Arduino is a relatively weak microcontroller running at only 16Mhz, I decided to use a light filter called a Mahony filter, and used the MahonyAHRS library to implement it in my code. If i ever upgrade the flight controller hardware, I'll then manually implement a Extended Kalman Filter, but right now it is too expensive for the Arduino.
+<img width="863" height="253" alt="image" src="https://github.com/user-attachments/assets/a9e361b2-f3d4-4f56-8025-98d8c846cd04" />
+
+I also decided to set the PID loop at a 500Hz rate, which is also how I calculated dt in my code.
+<img width="861" height="217" alt="image" src="https://github.com/user-attachments/assets/fb0dfdf3-b7b4-4355-9754-1e82c892d56f" />
+
+
+Finally, I made a PID controller for each axis of the drone and ran the mixer function at the end of the loop. Also made it that the integral portion will go to 0 when the drone is on the ground to prevent integral buildup when the drone is stationary.
+<img width="896" height="286" alt="image" src="https://github.com/user-attachments/assets/2beecc00-cb0f-4b5c-9cd8-67321269bc38" />
+
+# 7/21/2026 11:34 PM - Added Secondary Landing Legs.
+
+_Time spent: 57m_
+
+I added some small DJI Mini style landing legs to the drone, so that if I ever want I can take the big landing legs off and just have a low profile setup.
+<img width="1210" height="534" alt="image" src="https://github.com/user-attachments/assets/5c2e5df5-b1e3-4d53-9aff-5593bcd419cb" />
+<img width="1161" height="549" alt="image" src="https://github.com/user-attachments/assets/f0da94c7-e94f-44fe-9bf2-d7b771583c5f" />
+<img width="1202" height="674" alt="image" src="https://github.com/user-attachments/assets/d3cca06b-afc8-4c2a-8e80-85dc597b540e" />
+
 # 7/20/2026 10:28 PM - Started writing code to interface the Arduino with the RC transmitter.
 
 _Time spent: 2h 47m_
