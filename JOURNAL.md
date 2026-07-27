@@ -1,3 +1,10 @@
+# 7/27/2026 3:40 PM - Designing a second low-profile Chassis for Drone.
+I wanted to add a smaller low-profile chassis for the drone if I ever fly it with no big landing legs or payload or cameras, and so I designed another chassis that I'll also manufacture soon.
+<img width="1182" height="672" alt="image" src="https://github.com/user-attachments/assets/ee63d8d0-2d9c-49ad-92cc-c61b0a212b91" />
+<img width="1902" height="794" alt="image" src="https://github.com/user-attachments/assets/a88bce9a-0f3e-4442-9297-ad9c0319218f" />
+<img width="1919" height="879" alt="image" src="https://github.com/user-attachments/assets/65283aea-db1a-4f53-ba48-04d757ff9f84" />
+
+
 # 7/24/2026 10:58 PM - Soldering 1st batch of batteries.
 
 _Time spent: 2h 26m_
