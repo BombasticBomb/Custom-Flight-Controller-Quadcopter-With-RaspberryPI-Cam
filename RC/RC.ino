@@ -15,6 +15,12 @@
 #include "mpu9250.h"
 #include <MahonyAHRS.h>
 
+//Flight state variables
+bool flight = false;
+char flightMode = 'N';
+float maxFlightSpeed = 0.1;
+
+
 //Variables
 const int throttlePin = 2; volatile unsigned long throttlePWMStart = 0; volatile int throttleTemp = 1000; 
 const int pitchPin = 3; volatile unsigned long pitchPWMStart = 0; volatile int pitchTemp = 1000;
@@ -45,7 +51,7 @@ int rollStart = 1296; int rollEnd = 1800;
 float rollSetpoint = 0.0; float rollInput = 0.0; float rollLastError = 0.0; float rollIntegral = 0.0; 
 float pitchSetpoint = 0.0; float pitchInput = 0.0; float pitchLastError = 0.0; float pitchIntegral = 0.0; 
 float yawSetpoint = 0.0; float yawInput = 0.0; float yawLastError = 0.0; float yawIntegral = 0.0; 
-float Kp = 1.5; float Ki = 0.05; float Kd = 0.4; float dt = 1.0 / loopRate; int pidPitch = 0; int pidYaw = 0; int pidRoll = 0;
+float Kp = 1.5; float Ki = 0.05; float Kd = 0.4; const float dt = 1.0 / loopRate; int pidPitch = 0; int pidYaw = 0; int pidRoll = 0;
 
 
 //Define Motors
@@ -109,8 +115,15 @@ void loop() {
   //500Hz loop
   if ((currentMicros - previousMicros) >= refreshInterval){
     
-    // Keep absolute interval accumulation to avoid fractional time drift
-    previousMicros += refreshInterval;
+    // Safety check: if we fell behind by more than 5ms, reset anchor to avoid death spiral
+    if ((currentMicros - previousMicros) > 5000) {
+      previousMicros = currentMicros;
+    } else {
+      previousMicros += refreshInterval;
+    }
+
+    //Set flight mode
+    setFlightMode('N');
 
     //Set no interrupt to not corrupt data
     noInterrupts();
@@ -145,9 +158,9 @@ void loop() {
     currentRollAngle = filter.getRoll();
       
     //Convert receiver signals to degrees
-    float targetPitchAngle = constrain(map(pitchRC, minPWM, maxPWM, minTilt, maxTilt), minTilt, maxTilt);
-    float targetYawAngle   = constrain(map(yawRC, minPWM, maxPWM, minTilt, maxTilt), minTilt, maxTilt);
-    float targetRollAngle  = constrain(map(rollRC, minPWM, maxPWM, minTilt, maxTilt), minTilt, maxTilt);
+    float targetPitchAngle = constrain(mapF(pitchRC, minPWM, maxPWM, minTilt, maxTilt), minTilt, maxTilt);
+    float targetYawAngle   = constrain(mapF(yawRC, minPWM, maxPWM, minTilt, maxTilt), minTilt, maxTilt);
+    float targetRollAngle  = constrain(mapF(rollRC, minPWM, maxPWM, minTilt, maxTilt), minTilt, maxTilt);
 
     //Reset PID if throttle goes too low to avoid integral buildup while on the ground
     if (throttleRC < 1050){
@@ -215,9 +228,10 @@ void readRoll()     { readPWM(rollPin, rollPWMStart, rollTemp); }
 
 
 //Scale the transmitter values to the motor
-int generatePWM(int rawValue, int oldRangeStart, int oldRangeEnd, int newRangeStart, int newRangeEnd){
-  int result = constrain(map(rawValue, oldRangeStart, oldRangeEnd, newRangeStart, newRangeEnd), newRangeStart, newRangeEnd);
-  return result;
+int generatePWM(int rawValue, float oldRangeStart, float oldRangeEnd, float newRangeStart, float newRangeEnd){
+  float result = mapF(rawValue, oldRangeStart, oldRangeEnd, newRangeStart, (maxFlightSpeed*newRangeEnd));
+  result = constrain(result, newRangeStart, newRangeEnd);
+  return round(result);
 }
 
 
@@ -259,4 +273,22 @@ int calculatePID(float target, float currentAngle, float &lastError, float &inte
   float output = (Kp * error) + (Ki * integral) + (Kd * derivative);
   
   return (int)constrain(output, -450.0, 450.0);
+}
+
+float mapF(float x, float in_min, float in_max, float out_min, float out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+
+//Set Flight Mode 
+void setFlightMode(char mode){
+  if(mode == 'N'){
+    maxFlightSpeed = 0.7;
+  }
+  else if(mode == 'C'){
+    maxFlightSpeed = 0.6;
+  }
+  else{
+    maxFlightSpeed = 0.8;
+  }
 }
