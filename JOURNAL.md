@@ -1,3 +1,29 @@
+# 7/27/2026 3:40 PM - Designing a second low-profile Chassis for Drone.
+I wanted to add a smaller low-profile chassis for the drone if I ever fly it with no big landing legs or payload or cameras, and so I designed another chassis that I'll also manufacture soon.
+<img width="1182" height="672" alt="image" src="https://github.com/user-attachments/assets/ee63d8d0-2d9c-49ad-92cc-c61b0a212b91" />
+<img width="1902" height="794" alt="image" src="https://github.com/user-attachments/assets/a88bce9a-0f3e-4442-9297-ad9c0319218f" />
+<img width="1919" height="879" alt="image" src="https://github.com/user-attachments/assets/65283aea-db1a-4f53-ba48-04d757ff9f84" />
+
+
+# 7/24/2026 10:58 PM - Soldering 1st batch of batteries.
+
+_Time spent: 2h 26m_
+
+Today, my order from 18650 battery store for 3 21700 Li-ion cells came in. These are very beefy cells with a max pulse current of 70A and 5000mah capacity, so should be more than enough for my drone project. 
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/6773ed9f-a30b-4acf-8a8d-b1befe19468a" />
+But, since I've never soldered batteries together before and I can't afford a spot solder right now, I decided to test solder on some old 18650 cells I had, and that's what I did.
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/72f77009-2f98-4122-9c2d-1a83a6caf021" />
+Overall, it started off pretty rough as the solder was not sticking to the ends of the cells no matter what I tried. Then, i figured that it worked better if I didn't use any flux, which'd to me was counterintuitive as flux makes the solder stick. But anyways, I tried without and managed to solder all the wires together, and it gave me a nice 12V on the 3S cell.
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/7924936c-a82d-4a4e-b6a8-d1ff03a68e41" />
+To interface with the smart charger I also bought, I also attached a 4 pin connector to the battery for load-balancing smart charging. Overall it works great and the charger can individually tune the voltages of each cell for protection.
+<img width="571" height="933" alt="image" src="https://github.com/user-attachments/assets/c7baa17a-cb12-41eb-8032-22b9e4ece54c" />
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/b0290a45-75da-4329-9931-a8499cb64b89" />
+Hopefully in the next log I'd be able to finish soldering the actual 21700 cells to make another, much beefier pack that I'll actually use on the drone. This was for first-time practice and getting to actually know how its done!
+
+
+
+
+
 # 7/23/2026 7:29 PM - Added Secondary Landing Legs.
 
 _Time spent: 3h 21m_
