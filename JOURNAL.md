@@ -1,3 +1,31 @@
+# 8/1/2026 4:36 PM - Updating PID Controller to Cascaded PID Loop
+
+_Time spent: 3h 03m_
+
+First of all, it seems like I got scammed on the GY-91 chip I bought from Aliexpress, cause the chip returns a WHO_AM_I address of 0x70, which is the address of the MPU6500, not the MPU9250 I ordered. I did some more research, and it seems like these chinese sellers often put those chips and call it MPU9250. Thus, I won't be able to use a magnetometer to correct yaw drift, but hopefully I'll buy a good proper IMU from Adafruit or something, but that'll be for a future upgrade when I also move to the ESP32.
+
+Anyways, I went on and implemented a cascaded pid loop in my code. The inner loop is faster and controls angular velocity, which keeps the drone stable. In my code, I allowed the inner loop to run as fast as possible, and then the outer loop runs. My overall loop has a set HZ rate of 500HZ, but let's see if the Arduino can actually run that fast.
+<img width="994" height="388" alt="image" src="https://github.com/user-attachments/assets/1c870586-bd58-46a8-b2e7-070497488d5a" />
+<img width="1797" height="207" alt="image" src="https://github.com/user-attachments/assets/6c2983e0-8aaa-43e9-b928-97739810b1af" />
+
+Sadly to add on to my problems, I also got stuck with the issue that the Mahony filter didn't work no matter what I did. Since I didn't read into the implementation of the filter in the library, and it'll be too complicated, I decided to switch back to a complementary sensor fusion algorithm. I took 95% from the gyroscope, and 5% from the accelerometer. It won't have noise correction, but I think it'll do for now. And obviously I don't have any yaw correction. 
+<img width="1079" height="322" alt="image" src="https://github.com/user-attachments/assets/c0caee29-ff37-4dc3-9c9b-f2619ba652e4" />
+
+For the angles from the accelerometer, I used atan2 function to get the angles, and in the code I didn't use g and rather took the vector of the az and ay component using pythagorean theorem. Originally I thought I could use gravity g, but since the drone experiences g forces we can't use it.
+<img width="1190" height="382" alt="image" src="https://github.com/user-attachments/assets/4231e6b7-7c13-4dc1-a7d9-50cbe7ef5023" />
+
+For the Gyroscope I took the rates in radians, converted them to degrees by multiplying them by 180/pi, and then took the current angle and to that I added the Gyro rates multiplied by dt, essentially integrating the gyro rates over time to get the angles. This was done in the complementary filter.
+<img width="1006" height="451" alt="image" src="https://github.com/user-attachments/assets/d9527575-17c3-4005-90da-26d75d12d829" />
+
+To correct gyro bias, I made a small section of code to sample the gyroscope a set amount of times, for example 4000 samples, and average them and subtract them from the gyroscope data to find the true angles, or as close as possible. With this however, it adds a 1-2 second delay to the startup time, but I think it's definitely worth it as now the Gyroscope will adjust and calibrate no matter what happens to the drone structurally.
+<img width="790" height="347" alt="image" src="https://github.com/user-attachments/assets/0b46edd4-330c-4152-8f34-84cd12523919" />
+
+Lastly added some flight mode code and a flight variable so the drone knows whether its in flight mode or not.
+<img width="984" height="417" alt="image" src="https://github.com/user-attachments/assets/e0401d40-0289-472e-987a-128dea8106dd" />
+
+In the next part of the code I'll probably try to replace the ServoTimer2 library with my own implementation of PWM signals, as it may cause problems because of the pin timer. Also after I get the frame I also have PID tuning to do.
+
+
 # 8/1/2026 1:25 PM - Soldering the Drone Battery
 
 _Time spent: 3h 13m_
