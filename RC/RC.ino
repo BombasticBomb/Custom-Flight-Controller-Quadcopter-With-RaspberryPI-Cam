@@ -12,14 +12,12 @@
 
 #include "PinChangeInterrupt.h"
 #include <ServoTimer2.h>
-#include "mpu9250.h"
-#include <MahonyAHRS.h>
+#include "mpu6500.h" //I got fucking scammed so i now gotta use mpu6500 instead of mpu9250!!!
 
 //Flight state variables
 bool flight = false;
-char flightMode = 'N';
-float maxFlightSpeed = 0.1;
-
+char flightMode;
+float maxFlightSpeed = 0;
 
 //Variables
 const int throttlePin = 2; volatile unsigned long throttlePWMStart = 0; volatile int throttleTemp = 1000; 
@@ -38,8 +36,8 @@ unsigned long previousMicros = 0;
 
 //MPU9250 & BMP280
 int imuCSPin = A0;
-bfs::Mpu9250 imu(&SPI, imuCSPin);
-Mahony filter;
+int bmpCSPin = A1;
+bfs::Mpu6500 imu(&SPI, imuCSPin);
 
 //Transmitter Ranges
 int throttleStart = 944; int throttleEnd = 1944;
@@ -47,12 +45,31 @@ int pitchStart = 1196; int pitchEnd = 1694;
 int yawStart = 1248; int yawEnd = 1752;
 int rollStart = 1296; int rollEnd = 1800;
 
-//PID Variables
-float rollSetpoint = 0.0; float rollInput = 0.0; float rollLastError = 0.0; float rollIntegral = 0.0; 
-float pitchSetpoint = 0.0; float pitchInput = 0.0; float pitchLastError = 0.0; float pitchIntegral = 0.0; 
-float yawSetpoint = 0.0; float yawInput = 0.0; float yawLastError = 0.0; float yawIntegral = 0.0; 
-float Kp = 1.5; float Ki = 0.05; float Kd = 0.4; const float dt = 1.0 / loopRate; int pidPitch = 0; int pidYaw = 0; int pidRoll = 0;
+//---PID Variables---
+//Pitch Angles & Rate Varibales
+float pitchAngleKp = 2.0f; float pitchAngleKi = 0.0f; float pitchAngleKd = 0.0f;
+float pitchAngleIntegral = 0.0f; float pitchAngleLastError = 0.0f;
+float pitchRateKp = 1.2f; float pitchRateKi = 0.05f; float pitchRateKd = 0.01f;
+float pitchRateIntegral = 0.0f; float pitchRateLastError = 0.0f;
+//Roll Angles & Rate Variables
+float rollAngleKp = 2.0f; float rollAngleKi = 0.0f; float rollAngleKd = 0.0f;
+float rollAngleIntegral = 0.0f; float rollAngleLastError = 0.0f;
+float rollRateKp = 1.2f; float rollRateKi = 0.05f; float rollRateKd = 0.01f;
+float rollRateIntegral = 0.0f; float rollRateLastError = 0.0f;
+//Yaw Angle 
+float yawAngleKp = 1.5f; float yawAngleKi = 0.05f; float yawAngleKd = 0.4f;
+float yawAngleIntegral = 0.0f; float yawAngleLastError = 0.0f;
+//Storage variables
+const float dt = 1.0 / loopRate; int pidPitch = 0; int pidYaw = 0; int pidRoll = 0;
+const float pidPWMMin = -450; const float pidPWMMax = 450;
 
+//Sensor fusion variables
+float gyroPitch = 0; float gyroYaw = 0; float gyroRoll = 0;
+float accelPitch = 0; float accelRoll = 0;
+float radToDeg = 57.2957795f; 
+float gxBias; float gyBias; float gzBias;
+const int numSamples = 4000; //Bias correcting samples
+int successfulSamples = 0;
 
 //Define Motors
 ServoTimer2 esc1; int esc1Pin = 6;
@@ -63,7 +80,6 @@ ServoTimer2 esc4; int esc4Pin = 9;
 void setup() {
   Serial.begin(115200);
   SPI.begin();
-  filter.begin(loopRate); // filter to expect 500 measurements per second
 
   //Set the pins as input
   pinMode(throttlePin, INPUT);
@@ -74,6 +90,8 @@ void setup() {
   //Set the CS pin on GY-91 to input, as I'm using analog pins as I ran out of digital IO
   pinMode(imuCSPin, OUTPUT);
   digitalWrite(imuCSPin, HIGH);
+  pinMode(bmpCSPin, OUTPUT);
+  digitalWrite(bmpCSPin, HIGH);
 
   // Initialize the MPU9250
   if (!imu.Begin()) {
@@ -81,9 +99,9 @@ void setup() {
     while(1) {} // Halt if sensor not found
   }
   // Configure internal Digital Low Pass Filters (DLPF)
-  imu.ConfigAccelRange(bfs::Mpu9250::ACCEL_RANGE_8G);
-  imu.ConfigGyroRange(bfs::Mpu9250::GYRO_RANGE_500DPS);
-  imu.ConfigDlpfBandwidth(bfs::Mpu9250::DLPF_BANDWIDTH_41HZ);
+  imu.ConfigAccelRange(bfs::Mpu6500::ACCEL_RANGE_8G);
+  imu.ConfigGyroRange(bfs::Mpu6500::GYRO_RANGE_1000DPS);
+  imu.ConfigDlpfBandwidth(bfs::Mpu6500::DLPF_BANDWIDTH_184HZ);
 
   //Using the Arduino PCINT Library, it is a pin change library
   attachPCINT(digitalPinToPCINT(throttlePin), readThrottle, CHANGE); 
@@ -95,15 +113,29 @@ void setup() {
   esc1.attach(esc1Pin); 
   esc2.attach(esc2Pin); 
   esc3.attach(esc3Pin); 
-  esc4.attach(esc4Pin); 
-  
+  esc4.attach(esc4Pin);
+
   //Zero throttle for stopping
   esc1.write(minPWM);
   esc2.write(minPWM);
   esc3.write(minPWM);
   esc4.write(minPWM);
+
+  // Calibrate gyro bias 
+  while (successfulSamples < numSamples) {
+    if (imu.Read()) {
+      gxBias += imu.gyro_x_radps();
+      gyBias += imu.gyro_y_radps();
+      gzBias += imu.gyro_z_radps();
+      successfulSamples++;
+    }
+    delayMicroseconds(250);
+  }
+  gxBias /= numSamples;
+  gyBias /= numSamples;
+  gzBias /= numSamples; 
    
-  delay(5000); //Wait 5 seconds for arming
+  delay(2000); //Wait 2 seconds for arming
 
   // Initialize clock timing anchor right before entering the loop
   previousMicros = micros(); 
@@ -123,7 +155,8 @@ void loop() {
     }
 
     //Set flight mode
-    setFlightMode('N');
+    setFlightMode('S');
+    
 
     //Set no interrupt to not corrupt data
     noInterrupts();
@@ -146,16 +179,34 @@ void loop() {
     //Read from MPU9250
     if (imu.Read()){
       ax = imu.accel_x_mps2(); ay = imu.accel_y_mps2(); az = imu.accel_z_mps2();
-      gx = imu.gyro_x_radps(); gy = imu.gyro_y_radps(); gz = imu.gyro_z_radps();
-      mx = imu.mag_x_ut(); my = imu.mag_y_ut(); mz = imu.mag_z_ut();
+      gx = imu.gyro_x_radps() - gxBias; gy = imu.gyro_y_radps() - gyBias; gz = imu.gyro_z_radps() - gzBias;
     }
-    // Update the Mahony filter
-    filter.update(gx, gy, gz, ax, ay, az, mx, my, mz);
-  
-    //Get normalised values for current angles
-    currentPitchAngle = filter.getPitch();
-    currentYawAngle = filter.getYaw();
-    currentRollAngle = filter.getRoll();
+
+    // Invert az to correct the negative gravity vector
+    float corrected_az = -az;
+
+    //Calculate angles from accelerometer
+    accelPitch = atan2(ax, sqrt(ay * ay + corrected_az * corrected_az)) * radToDeg;
+    accelRoll  = -atan2(ay, corrected_az) * radToDeg;
+
+    // Gyro Pitch rate converted to degrees
+    gyroPitch = gy * radToDeg;
+    gyroRoll = gx * radToDeg;
+    gyroYaw = gz * radToDeg;
+
+    // Initialize angles on the very first run
+    if (!flight) {
+      currentPitchAngle = accelPitch;
+      currentRollAngle = accelRoll;
+      currentYawAngle = gyroYaw;
+      flight = true;
+    } 
+    else {
+      //Complementary Filter
+      currentPitchAngle = 0.95f * (currentPitchAngle + gyroPitch * dt) + 0.05f * accelPitch;
+      currentRollAngle  = 0.95f * (currentRollAngle  + gyroRoll * dt)  + 0.05f * accelRoll;
+      currentYawAngle += (gyroYaw * dt);
+    }
       
     //Convert receiver signals to degrees
     float targetPitchAngle = constrain(mapF(pitchRC, minPWM, maxPWM, minTilt, maxTilt), minTilt, maxTilt);
@@ -164,15 +215,19 @@ void loop() {
 
     //Reset PID if throttle goes too low to avoid integral buildup while on the ground
     if (throttleRC < 1050){
-      pitchIntegral = 0;
-      rollIntegral = 0;
-      yawIntegral = 0;
+      pitchAngleIntegral = 0; pitchRateIntegral = 0;
+      rollAngleIntegral = 0; rollRateIntegral = 0;
+      yawAngleIntegral = 0;
     }
 
-    //Calculate PID values for Pitch, Yaw, and Roll
-    pidPitch = calculatePID(targetPitchAngle, currentPitchAngle, pitchLastError, pitchIntegral, dt);
-    pidYaw = calculatePID(targetYawAngle, currentYawAngle, yawLastError, yawIntegral, dt);
-    pidRoll = calculatePID(targetRollAngle, currentRollAngle, rollLastError, rollIntegral, dt);
+    //Cascaded PID loop
+    float targetPitchRate = calculatePID(targetPitchAngle, currentPitchAngle, pitchAngleIntegral, pitchAngleLastError, pitchAngleKp, pitchAngleKi, pitchAngleKd, dt);
+    pidPitch = round(calculatePID(targetPitchRate, gyroPitch, pitchRateIntegral, pitchRateLastError, pitchRateKp, pitchRateKi, pitchRateKd, dt));
+
+    float targetRollRate = calculatePID(targetRollAngle, currentRollAngle, rollAngleIntegral, rollAngleLastError, rollAngleKp, rollAngleKi, rollAngleKd, dt);
+    pidRoll = round(calculatePID(targetRollRate, gyroRoll, rollRateIntegral, rollRateLastError, rollRateKp, rollRateKi, rollRateKd, dt));
+
+    pidYaw = round(calculatePID(targetYawAngle, currentYawAngle, yawAngleIntegral, yawAngleLastError, yawAngleKp, yawAngleKi, yawAngleKd, dt));
   
     //Send motor pulses
     mixMotors(throttleRC, pidPitch, pidYaw, pidRoll);
@@ -200,6 +255,11 @@ void loop() {
     delay(100); //Delay to keep serial monitor
     */
 
+    /*
+    Serial.print("Pitch: "); Serial.print(currentPitchAngle, 2);
+    Serial.print(" | Roll: "); Serial.println(currentRollAngle, 2);
+    */
+    
   }
   
   
@@ -229,7 +289,7 @@ void readRoll()     { readPWM(rollPin, rollPWMStart, rollTemp); }
 
 //Scale the transmitter values to the motor
 int generatePWM(int rawValue, float oldRangeStart, float oldRangeEnd, float newRangeStart, float newRangeEnd){
-  float result = mapF(rawValue, oldRangeStart, oldRangeEnd, newRangeStart, (maxFlightSpeed*newRangeEnd));
+  float result = mapF(rawValue, oldRangeStart, oldRangeEnd, newRangeStart, round(maxFlightSpeed*newRangeEnd));
   result = constrain(result, newRangeStart, newRangeEnd);
   return round(result);
 }
@@ -256,23 +316,23 @@ void mixMotors(int throttleRC, float pid_pitch, float pid_yaw, float pid_roll) {
   esc4.write(m4_speed);
 }
 
-int calculatePID(float target, float currentAngle, float &lastError, float &integral, float dt) {
-  if (dt <= 0.0) return 0;
+float calculatePID(float target, float current, float &integral, float &lastError, float kp, float ki, float kd, float dt) {
+  if (dt <= 0.0) return 0.0;
   // Calculate error
-  float error = target - currentAngle;
+  float error = target - current;
 
   // Calculate Integral
   integral += error * dt;
-  integral = constrain(integral, -450.0, 450.0);
+  integral = constrain(integral, pidPWMMin, pidPWMMax);
 
   // Calculate Derivative
   float derivative = (error - lastError) / dt;
   lastError = error; 
 
   // Add to make the final controller: P + I + D
-  float output = (Kp * error) + (Ki * integral) + (Kd * derivative);
+  float output = (kp * error) + (ki * integral) + (kd * derivative);
   
-  return (int)constrain(output, -450.0, 450.0);
+  return constrain(output, pidPWMMin, pidPWMMax);
 }
 
 float mapF(float x, float in_min, float in_max, float out_min, float out_max) {
@@ -288,7 +348,7 @@ void setFlightMode(char mode){
   else if(mode == 'C'){
     maxFlightSpeed = 0.6;
   }
-  else{
-    maxFlightSpeed = 0.8;
+  else if (mode == 'S'){
+    maxFlightSpeed = 1.0;
   }
 }
