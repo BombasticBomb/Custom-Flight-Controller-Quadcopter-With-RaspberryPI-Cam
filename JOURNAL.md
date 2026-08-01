@@ -1,3 +1,19 @@
+# 8/1/2026 1:25 PM - Soldering the Drone Battery
+
+_Time spent: 3h 13m_
+
+Confident after soldering the last batch of batteries. I decided to start soldering the RS50 Reliance batteries I bought for the actual drone. It started of really rough, with me burning my hands a couple times. So I tried like last time to not use flux, which improved a little bit, but not enough to make it work. Then, I finally ran out of solder, which made me open my new pack of solder I bought. And miraculously, the solder started working. I realized that this new solder had a flux core, which made my life way more easier, and I was able to finish soldering all the batteries.
+
+I hooked it up to my Arduino and ESC, and it was providing nice power.
+<img width="3024" height="4032" alt="IMG_0028" src="https://github.com/user-attachments/assets/4e845e1a-7554-4062-89e9-f01d0bc6cd57" />
+<img width="3024" height="4032" alt="IMG_0027" src="https://github.com/user-attachments/assets/1fe58f9f-fd94-4799-ae37-5294cc4ed5a7" />
+
+Just to be sure, I also measured the voltage of the batteries, and since they were almost fully charged, they showed 12.3V, which is normal for a 3S cell.
+<img width="3024" height="4032" alt="IMG_0029" src="https://github.com/user-attachments/assets/c7eeaa88-a06f-4bb1-ab60-6f30053baba5" />
+
+I also connected it to the smart charger after attaching the load balancing wires, and the 3 cells were all charging normally.
+<img width="3024" height="4032" alt="IMG_0030" src="https://github.com/user-attachments/assets/268c75f7-d991-427f-b7e3-4425d3f69abb" />
+
 # 7/27/2026 3:40 PM - Designing a second low-profile Chassis for Drone.
 I wanted to add a smaller low-profile chassis for the drone if I ever fly it with no big landing legs or payload or cameras, and so I designed another chassis that I'll also manufacture soon.
 <img width="1182" height="672" alt="image" src="https://github.com/user-attachments/assets/ee63d8d0-2d9c-49ad-92cc-c61b0a212b91" />
