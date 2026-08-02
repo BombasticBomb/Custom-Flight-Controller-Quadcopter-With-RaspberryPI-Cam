@@ -1,3 +1,24 @@
+# 8/1/2026 4:36 PM - Redesigning Drone Mounting Holes
+
+_Time spent: 2h 05m_
+
+I was hesitant to print the drone arm without testing them with the actual motor first, so I printed one.
+<img width="4032" height="3024" alt="IMG_0031" src="https://github.com/user-attachments/assets/37a0ee0f-2d6c-4517-afc4-5d7cad060d28" />
+<img width="4032" height="3024" alt="IMG_0032" src="https://github.com/user-attachments/assets/4e0e0b09-de0f-4478-bc99-6689629eabc3" />
+
+However, I soon realized that even though from google I found that these motors have a mounting pattern or 16mmx19mm, the actual dimensions were definitely off on my specific motor brand, as I couldn't get it to fit at all. The holes had also shrunk due to the printing layers.
+<img width="3024" height="4032" alt="IMG_0020" src="https://github.com/user-attachments/assets/bbcecaa4-4259-4b59-891f-9ea1724f5c53" />
+
+After some back and forth on my Ender 3 Pro, I realized the best dimension was actually 12.7mm x 13.5mm, which is wildly different from the actual one. Anyways, I also decided to use a custom hole and not the designated M3 hole in fusion 360, and I'll just use washers to make sure the screws stay where they are and look clean.
+<img width="1437" height="683" alt="image" src="https://github.com/user-attachments/assets/e56b27ba-6865-438e-b2f1-66e11fcbce5a" />
+<img width="3024" height="4032" alt="IMG_0018" src="https://github.com/user-attachments/assets/95b1eef0-e020-468e-a9b4-5e88b088a0be" />
+<img width="3024" height="4032" alt="IMG_0019" src="https://github.com/user-attachments/assets/9778c2d0-0b5e-4c87-8d3d-8b822af08254" />
+
+And, it finally worked!
+<img width="1212" height="583" alt="image" src="https://github.com/user-attachments/assets/578a6282-53eb-4bd2-a3f4-ed16516efa91" />
+<img width="3024" height="4032" alt="IMG_0025" src="https://github.com/user-attachments/assets/0f29f250-ef85-4dae-b303-30efc793feae" />
+
+
 # 8/1/2026 4:36 PM - Updating PID Controller to Cascaded PID Loop
 
 _Time spent: 3h 03m_
