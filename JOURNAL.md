@@ -1,3 +1,14 @@
+# 8/11/2026 6:46 PM - Assembling The Parts.
+
+_Time spent: 1h 07m_
+
+I finally got the 3D printed chassis parts for my drone, and I wasted no time and got to work assembling it. Here's some individual photos.
+<img width="494" height="501" alt="image" src="https://github.com/user-attachments/assets/a7074ebf-7584-407c-9332-2a7447dcf954" />
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/ff17cd81-056d-415a-8292-5619c82c3139" />
+
+I used M3 screws, bolts and washers. The arms are a bit loose, but we'll see.
+
+
 # 8/1/2026 4:36 PM - Redesigning Drone Mounting Holes
 
 _Time spent: 2h 05m_
