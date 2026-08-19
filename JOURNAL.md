@@ -1,3 +1,23 @@
+# 8/18/2026 8:34 PM - Assembling The Parts.
+
+_Time spent: 1h 37m_
+
+Today I tried to do my first test run. Firstly I connected up the propellers and saw if the motors spin properly. Then, I went in and tried to see if the drone could stabilize with my code.
+<img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/21277564-0a32-4a1d-89d7-28ebf1c1fe90" />
+
+Then, I tried to test run it on a weight I had lying around to see if it could stabilize. But no matter what, it just won't stabilize. The drone would like shake up and down for some reason on both sides.
+<img width="1919" height="997" alt="image" src="https://github.com/user-attachments/assets/4fd03a4b-6fec-464a-aaf3-b28c8f479eb1" />
+So then I tried tweaking the values by increasing the rate pid constants and decreasing the angle one. It didn't help much. 
+
+So, I tried installing ESP-FC on my ESP32, which is a community made ready-to-fly flight controller, to just see if there's something seriously wrong with my hardware.
+<img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/878ae530-1c88-4a8b-b3c0-1d95d8a5488e" />
+Due to the ESP-FC being reall good firmware the drone was able to stabilize better, but it seems like my arms were getting bent by the sheer weight and the thrust. Apparently it was a structural issue all along!
+<img width="589" height="777" alt="image" src="https://github.com/user-attachments/assets/358bae36-ecb6-4687-91d5-22675d11b29e" />
+
+Therefore, I decided to not waste any more time on this drone and get back to designing. I'll be soon designing a new drone arm and getting that printed, and hopefully this time it'll be much thicker and do fine.
+<img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/46e27b0a-f5af-44af-971b-c7586f6cd5ff" />
+
+
 # 8/11/2026 6:46 PM - Assembling The Parts.
 
 _Time spent: 1h 07m_
