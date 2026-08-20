@@ -12,7 +12,6 @@ So, I took a shortcut, I had to...
 
 I decided that in order to save time, atleast for the arm, I'd go with the tried and tested DJI F450 arm design, and make some small designs to make it work with my specific chassis.
 Using the holes from my chassis, I cut those holes into the new arm design so I can attach it with M3 screws to the main chassis.
-<img width="1341" height="737" alt="image" src="https://github.com/user-attachments/assets/bc89d82c-3a35-45e9-aa6b-cc964b08aff0" />
 Therefore, credits to Sarthak Nashirabadkar on GrabCAD for the arm design, it really helped me to quickly get this project back on its feet.
 Link: https://grabcad.com/library/f450-quadcopter-drone-frame-1
 
