@@ -1,3 +1,61 @@
+# 8/19/2026 8:39 PM - Designing New Arm.
+
+_Time spent: 54m_
+
+Today I decided to tackle the problem of designing a completely new arm for the drone. As I already mentioned before, the arm keeps getting bent from the thrust and also the weight of the drone, meaning I'd need to make it stronger and more stiff so it doesn't bend.
+<img width="588" height="776" alt="image" src="https://github.com/user-attachments/assets/17799f91-b112-4d33-97e8-c93728304387" />
+
+So I started designing, but since I was designing on a pretty cluttered design file and my arm was built up with work over many days, what I designed was not something I particularly liked.
+<img width="1877" height="824" alt="image" src="https://github.com/user-attachments/assets/6077f0d9-d2cb-421f-b0a4-99f49d40dae4" />
+This project was getting more time-consuming and expensive than it ever needed to be, and it was getting bad. I struggled with this for like about 30 minutes, but I couldn't find ways to quickly make it better, and now that school had started I didn't have time like before to iterate and reprint quickly.
+So, I took a shortcut, I had to...
+
+I decided that in order to save time, atleast for the arm, I'd go with the tried and tested DJI F450 arm design, and make some small designs to make it work with my specific chassis.
+Using the holes from my chassis, I cut those holes into the new arm design so I can attach it with M3 screws to the main chassis.
+Therefore, credits to Sarthak Nashirabadkar on GrabCAD for the arm design, it really helped me to quickly get this project back on its feet.
+Link: https://grabcad.com/library/f450-quadcopter-drone-frame-1
+<img width="1919" height="922" alt="image" src="https://github.com/user-attachments/assets/c42680fe-4942-43a8-93c3-b61351813e1a" />
+<img width="1216" height="657" alt="image" src="https://github.com/user-attachments/assets/00a9b6d3-a348-4178-9820-3373b59e18fc" />
+
+
+Additionally, I also made another small attaching thing in case someone want to use actual DJI F450 arms, and just 3D print their chassis, and so for that reason I made a small adapter to attach that arm to my chassis.
+<img width="1371" height="717" alt="image" src="https://github.com/user-attachments/assets/092ccc2e-b79b-4eef-b6c5-dfd6ace50441" />
+
+Lastly, I also made the legs of the drone a little thicker, as the last time I printed it they were way too thin and broke on the first day.
+<img width="1672" height="779" alt="image" src="https://github.com/user-attachments/assets/8b53fb4c-c5a8-4625-9640-afbd69d22d9c" />
+
+
+# 8/18/2026 8:34 PM - Testing 1st Flight (Failed).
+
+_Time spent: 1h 37m_
+
+Today I tried to do my first test run. Firstly I connected up the propellers and saw if the motors spin properly. Then, I went in and tried to see if the drone could stabilize with my code.
+<img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/21277564-0a32-4a1d-89d7-28ebf1c1fe90" />
+
+Then, I tried to test run it on a weight I had lying around to see if it could stabilize. But no matter what, it just won't stabilize. The drone would like shake up and down for some reason on both sides.
+<img width="1919" height="997" alt="image" src="https://github.com/user-attachments/assets/4fd03a4b-6fec-464a-aaf3-b28c8f479eb1" />
+So then I tried tweaking the values by increasing the rate pid constants and decreasing the angle one. It didn't help much. 
+
+So, I tried installing ESP-FC on my ESP32, which is a community made ready-to-fly flight controller, to just see if there's something seriously wrong with my hardware.
+<img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/878ae530-1c88-4a8b-b3c0-1d95d8a5488e" />
+Due to the ESP-FC being reall good firmware the drone was able to stabilize better, but it seems like my arms were getting bent by the sheer weight and the thrust. Apparently it was a structural issue all along!
+<img width="589" height="777" alt="image" src="https://github.com/user-attachments/assets/358bae36-ecb6-4687-91d5-22675d11b29e" />
+
+Therefore, I decided to not waste any more time on this drone and get back to designing. I'll be soon designing a new drone arm and getting that printed, and hopefully this time it'll be much thicker and do fine.
+<img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/46e27b0a-f5af-44af-971b-c7586f6cd5ff" />
+
+
+# 8/11/2026 6:46 PM - Assembling The Parts.
+
+_Time spent: 1h 07m_
+
+I finally got the 3D printed chassis parts for my drone, and I wasted no time and got to work assembling it. Here's some individual photos.
+<img width="494" height="501" alt="image" src="https://github.com/user-attachments/assets/a7074ebf-7584-407c-9332-2a7447dcf954" />
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/ff17cd81-056d-415a-8292-5619c82c3139" />
+
+I used M3 screws, bolts and washers. The arms are a bit loose, but we'll see.
+
+
 # 8/1/2026 4:36 PM - Redesigning Drone Mounting Holes
 
 _Time spent: 2h 05m_
