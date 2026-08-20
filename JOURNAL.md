@@ -12,7 +12,6 @@ So, I took a shortcut, I had to...
 
 I decided that in order to save time, atleast for the arm, I'd go with the tried and tested DJI F450 arm design, and make some small designs to make it work with my specific chassis.
 <img width="1877" height="824" alt="image" src="https://github.com/user-attachments/assets/578cd082-74a8-4519-9e8e-ddaa643e4de0" />
-<img width="1686" height="730" alt="image" src="https://github.com/user-attachments/assets/7411819b-bc12-43d3-bbec-322c8dca6ce7" />
 Using the holes from my chassis, I cut those holes into the new arm design so I can attach it with M3 screws to the main chassis.
 <img width="1341" height="737" alt="image" src="https://github.com/user-attachments/assets/bc89d82c-3a35-45e9-aa6b-cc964b08aff0" />
 Therefore, credits to Sarthak Nashirabadkar on GrabCAD for the arm design, it really helped me to quickly get this project back on its feet.
