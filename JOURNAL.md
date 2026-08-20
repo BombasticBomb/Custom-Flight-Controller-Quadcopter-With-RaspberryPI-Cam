@@ -1,4 +1,31 @@
-# 8/18/2026 8:34 PM - Assembling The Parts.
+# 8/19/2026 8:39 PM - Designing New Arm.
+
+_Time spent: 54m_
+
+Today I decided to tackle the problem of designing a completely new arm for the drone. As I already mentioned before, the arm keeps getting bent from the thrust and also the weight of the drone, meaning I'd need to make it stronger and more stiff so it doesn't bend.
+<img width="588" height="776" alt="image" src="https://github.com/user-attachments/assets/17799f91-b112-4d33-97e8-c93728304387" />
+
+So I started designing, but since I was designing on a pretty cluttered design file and my arm was built up with work over many days, what I designed was not something I particularly liked.
+<img width="1877" height="824" alt="image" src="https://github.com/user-attachments/assets/6077f0d9-d2cb-421f-b0a4-99f49d40dae4" />
+I struggled with this for like about 30 minutes, but I couldn't find ways to quickly make it better, and now that school had started I didn't have time like before to iterate and reprint quickly.
+So, I took a shortcut, I had to...
+
+I decided that in order to save time, atleast for the arm, I'd go with the tried and tested DJI F450 arm design, and make some small designs to make it work with my specific chassis.
+<img width="1877" height="824" alt="image" src="https://github.com/user-attachments/assets/578cd082-74a8-4519-9e8e-ddaa643e4de0" />
+<img width="1686" height="730" alt="image" src="https://github.com/user-attachments/assets/7411819b-bc12-43d3-bbec-322c8dca6ce7" />
+Using the holes from my chassis, I cut those holes into the new arm design so I can attach it with M3 screws to the main chassis.
+<img width="1341" height="737" alt="image" src="https://github.com/user-attachments/assets/bc89d82c-3a35-45e9-aa6b-cc964b08aff0" />
+Therefore, credits to Sarthak Nashirabadkar on GrabCAD for the arm design, it really helped me to quickly get this project back on its feet.
+Link: https://grabcad.com/library/f450-quadcopter-drone-frame-1
+
+Additionally, I also made another small attaching thing in case someone want to use actual DJI F450 arms, and just 3D print their chassis, and so for that reason I made a small adapter to attach that arm to my chassis.
+<img width="1371" height="717" alt="image" src="https://github.com/user-attachments/assets/092ccc2e-b79b-4eef-b6c5-dfd6ace50441" />
+
+Lastly, I also made the legs of the drone a little thicker, as the last time I printed it they were way too thin and broke on the first day.
+<img width="1672" height="779" alt="image" src="https://github.com/user-attachments/assets/8b53fb4c-c5a8-4625-9640-afbd69d22d9c" />
+
+
+# 8/18/2026 8:34 PM - Testing 1st Flight (Failed).
 
 _Time spent: 1h 37m_
 
