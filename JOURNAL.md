@@ -7,7 +7,7 @@ Today I decided to tackle the problem of designing a completely new arm for the 
 
 So I started designing, but since I was designing on a pretty cluttered design file and my arm was built up with work over many days, what I designed was not something I particularly liked.
 <img width="1877" height="824" alt="image" src="https://github.com/user-attachments/assets/6077f0d9-d2cb-421f-b0a4-99f49d40dae4" />
-I struggled with this for like about 30 minutes, but I couldn't find ways to quickly make it better, and now that school had started I didn't have time like before to iterate and reprint quickly.
+This project was getting more time-consuming and expensive than it ever needed to be, and it was getting bad. I struggled with this for like about 30 minutes, but I couldn't find ways to quickly make it better, and now that school had started I didn't have time like before to iterate and reprint quickly.
 So, I took a shortcut, I had to...
 
 I decided that in order to save time, atleast for the arm, I'd go with the tried and tested DJI F450 arm design, and make some small designs to make it work with my specific chassis.
