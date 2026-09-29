@@ -1,5 +1,29 @@
 # 8/19/2026 8:39 PM - Designing New Arm.
 
+_Time spent: 1h 21m_
+
+Ok, I'm back working on the drone after over a month, I was kinda busy with schoolwork. Anyways, I haven't gotten to test the new arm design, and I called up the printlegion supplier of mine and got a new order going. In the meanwhile, I decided to continue trying to work on the drone with a spare F450 drone chassis kit I had. Not only that, since all my propellers broke last time - lots of work done in this after school session.
+
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/ae6a95d2-2722-4fde-8148-0a99047689a6" />
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/c822e1a2-1085-418d-a159-f25cf214308b" />
+Firstly, I screwed together the F450 chassis, unscrewed the motors from my custom chassis and put them on the F450 arms, and it came out as the generic drone everyone builds. Anyways, I also wanted to test if the motors had any thrust imbalances that was causing any problems, as since I crashed the drone a couple of times during previous testing sessions, I feared the motor shafts may have bent. Therefore, this test can validate the motors with a tried and tested chassis before I go back to my original chassis.
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/93df82d1-3b75-4496-bf4b-119e048a7804" />
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/ee9d6f2e-b78f-43ab-9f6a-5403b06a826b" />
+
+
+After that, I obviously attached the new propeller sets I got. Before I was testing out in the roads on concrete, so each crash ended up breaking 1 or 2 propellers. So, this time I not only got new stronger propellers that had a larger pitch and a stronger mid-section, I am also thinking of doing all my testing in the grassy area nearby, so hopefully no more propellers will break.
+<img width="700" height="933" alt="image" src="https://github.com/user-attachments/assets/a017d3e5-9939-4376-8587-421aab6f014e" />
+<img width="1244" height="933" alt="image" src="https://github.com/user-attachments/assets/c12027ce-d0d2-42af-90b1-6e4c88882f64" />
+
+Lastly, I am realizing the cascaded pid loop I am running on the arduino may be too slow, as the arduino is not a very powerful microcontroller. So, my next target is now an ESP32, as the advanced control features I want to implement needs a stronger processor. Not only that, the ESP32 also has a built-in FPU, which should make my PID calculations much faster. But before I start migrating my code however, I again want to test my motors, and so for now I decided to test the drone with ESP-FC, an open source drone firmware for ESP32 that is configurable with betaflight configurator.
+<img width="1244" height="933" alt="image" src="https://github.com/user-attachments/assets/bf855f49-c633-43cd-8822-729be93f9239" />
+<img width="1244" height="933" alt="image" src="https://github.com/user-attachments/assets/a9056f0f-db3c-4117-9d7c-9da7fcf96c10" />
+
+I flashed it and got betaflight configurator running, but I didn't get any chance to set up the pins. One advantage of using ESP32 is that it has hardware interrupts on many GPIO pins, and it can also use the SBUS protocol my receiver uses instead of individual PWM channels. Next session I'll set up all the pin connections, PID tune betaflight, and hopefully there'll be no problems with my motors.
+
+
+# 8/19/2026 8:39 PM - Designing New Arm.
+
 _Time spent: 54m_
 
 Today I decided to tackle the problem of designing a completely new arm for the drone. As I already mentioned before, the arm keeps getting bent from the thrust and also the weight of the drone, meaning I'd need to make it stronger and more stiff so it doesn't bend.
